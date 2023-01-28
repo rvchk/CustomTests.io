@@ -1,3 +1,4 @@
+// Create a Question
 let Questions = []
 let que = document.querySelector("#que")
 let ans = document.querySelector("#ans")
@@ -13,11 +14,16 @@ if (local){
 }
 
 create.addEventListener("click", function(){
-    Questions.push(`${que.value} ==> ${ans.value}`)
-    que.value = ""
-    ans.value = ""
-    localStorage.setItem('Questions', JSON.stringify(Questions))
-    Render()
+    if (que.value === "" && ans.value === ""){
+        Render()
+    }
+    else {
+        Questions.push(`${que.value} ==> ${ans.value}`)
+        que.value = ""
+        ans.value = ""
+        localStorage.setItem('Questions', JSON.stringify(Questions))
+        Render()
+    }
 })
 
 function Render(){
@@ -45,3 +51,4 @@ delLastBtn.addEventListener("dblclick", function(){
     Render()
 })
 
+// Test
