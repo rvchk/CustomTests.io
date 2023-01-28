@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kodchasan&display=swap');
+body {
+    grid-column: 1/12;
+    font-family: Poppins;
+    font-size: 21px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    padding: 0.57em;
+    margin-left: 15px;
+    color: black;
+    text-decoration: none;
+}
+
+.navbar {
+    padding: 0.5em;
+    background-color: rgb(81, 219, 39);
+}
+
+.rigthPart {
+    font-family: Kodchasan;
+    margin-right: 50px;
+    float: right;
+}
+
+.rigthPart a:hover {
+    background-color: rgb(74, 207, 33);
+    
+}
+
+.mainContainer {
+    display: grid;
+    grid-column: 1/12;
+}
+
+.container {
+    display: grid;
+    grid-column: 3/10;
+}
+
+.container p {
+    font-size: 46px;
+    margin-top: 100px;
+}
+
+input {
+    border-color: rgb(29, 177, 29);
+    border-radius: 5px;
+    padding: 0.5em;
+    width: 350px;
+}
+
+#que {
+    margin-bottom: 50px;
+}
+
+#create {
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(84, 212, 44);
+    font-size: 24px;
+    margin-top: 20px;
+    width: 130px;
+    padding: 0.2em;
+    cursor: pointer;
+}
+
+#create:hover {
+    background-color: rgb(80, 190, 47);
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin: 0.5em;
+}
+
+#deleteAll {
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(231, 35, 35);
+    font-size: 24px;
+    margin-top: 20px;
+    width: 130px;
+    padding: 0.2em;
+    cursor: pointer;
+}
+
+#deleteAll:hover {
+    background-color: rgb(156, 42, 34);
+}
+
+#deleteLast {
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(231, 35, 35);
+    font-size: 24px;
+    margin-top: 20px;
+    width: 140px;
+    padding: 0.2em;
+    cursor: pointer;
+}
+
+#deleteLast:hover {
+    background-color: rgb(156, 41, 33);
+}
