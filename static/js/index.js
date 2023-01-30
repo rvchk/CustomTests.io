@@ -113,6 +113,7 @@ let testAns = document.querySelector("#testAns")
 let testBtn = document.querySelector("#testBtn")
 let testInd = 0
 testAns.style.display = "none"
+Answers.unshift("0")
 
 function renderTest(){
     test.innerHTML = `TEST ${testInd}/${Questions.length}`
