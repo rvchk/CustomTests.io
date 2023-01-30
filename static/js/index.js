@@ -12,6 +12,9 @@ let delLastBtn = document.querySelector("#deleteLast")
 
 if (local){
     Questions = local
+    Render()
+}
+if (localTest){
     QuestionsTest = localTest
     Render()
 }
@@ -47,15 +50,18 @@ function Render(){
 delBtn.addEventListener("dblclick", function(){
     localStorage.clear()
     Questions = []
+    QuestionsTest = []
     Render()
     renderTest()
 })
 
 delLastBtn.addEventListener("dblclick", function(){
+    localStorage.QuestionsTest
+    localStorage.QuestionsTest = JSON.stringify(QuestionsTest.slice(0, -1))
     localStorage.Questions
     localStorage.Questions = JSON.stringify(Questions.slice(0, -1))
     Questions.pop()
-    console.log(Questions)
+    QuestionsTest.pop()
     Render()
     renderTest()
 })
@@ -73,6 +79,7 @@ function renderTest(){
 }
 
 testBtn.addEventListener("click", function(){
+    testBtn.innerHTML = "Answer"
     testAns.value = ""
     if (testInd < Questions.length){
         testInd += 1
