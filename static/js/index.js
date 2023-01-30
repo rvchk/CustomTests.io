@@ -1,14 +1,22 @@
 // Create a Question
 let QuestionsTest = []
 let Questions = []
+let Answers = [1]
 let que = document.querySelector("#que")
 let ans = document.querySelector("#ans")
 let create = document.querySelector("#create")
 let local = JSON.parse(localStorage.getItem("Questions"))
 let localTest = JSON.parse(localStorage.getItem("QuestionsTest"))
+let localAns = JSON.parse(localStorage.getItem("Answers"))
 let listQue = document.querySelector("#listQue")
 let delBtn = document.querySelector("#deleteAll")
 let delLastBtn = document.querySelector("#deleteLast")
+let showBtn = document.querySelector("#showBtn")
+let closeBtn = document.querySelector("#closeBtn")
+showBtn.style.display = "none"
+closeBtn.style.display = "none"
+
+
 
 if (local){
     Questions = local
@@ -18,23 +26,34 @@ if (localTest){
     QuestionsTest = localTest
     Render()
 }
+if (localAns){
+    Answers = localAns
+    Render()
+}
 
 
 create.addEventListener("click", function(){
+    if (Questions.length > 10){
+        listQue.innerHTML = ""
+    }
+
     if (que.value === "" && ans.value === ""){
         Render()
     }
     else {
         Questions.push(`${que.value} ==> ${ans.value}`)
         QuestionsTest.push(`${que.value} ==> `)
+        Answers.push(`${ans.value}`)
         que.value = ""
         ans.value = ""
         localStorage.setItem('Questions', JSON.stringify(Questions))
         localStorage.setItem("QuestionsTest", JSON.stringify(QuestionsTest))
+        localStorage.setItem("Answers", JSON.stringify(Answers))
         Render()
         renderTest()
     }
 })
+
 
 function Render(){
     let list = ""
@@ -45,26 +64,47 @@ function Render(){
         </li>`
     }
     listQue.innerHTML = list
+    if (Questions.length > 5){
+        listQue.innerHTML = ""
+        showBtn.style.display = "block"
+    }
+    showBtn.addEventListener("click", function(){
+        listQue.innerHTML = list
+        closeBtn.style.display = "block"
+        showBtn.style.display = "none"
+    })
+    closeBtn.addEventListener("click", function(){
+        listQue.innerHTML = ""
+        closeBtn.style.display = "none"
+        showBtn.style.display = "block"
+    })
 }
+
 
 delBtn.addEventListener("dblclick", function(){
     localStorage.clear()
     Questions = []
     QuestionsTest = []
+    Answers = []
     Render()
     renderTest()
 })
 
+
 delLastBtn.addEventListener("dblclick", function(){
+    localStorage.Answers
+    localStorage.Answers = JSON.stringify(Answers.slice(0, -1))
     localStorage.QuestionsTest
     localStorage.QuestionsTest = JSON.stringify(QuestionsTest.slice(0, -1))
     localStorage.Questions
     localStorage.Questions = JSON.stringify(Questions.slice(0, -1))
+    Answers.pop()
     Questions.pop()
     QuestionsTest.pop()
     Render()
     renderTest()
 })
+
 
 // Test
 let test = document.querySelector("#test")
@@ -72,23 +112,25 @@ let testQue = document.querySelector("#testQue")
 let testAns = document.querySelector("#testAns")
 let testBtn = document.querySelector("#testBtn")
 let testInd = 0
-console.log(localTest)
+testAns.style.display = "none"
 
 function renderTest(){
     test.innerHTML = `TEST ${testInd}/${Questions.length}`
 }
 
 testBtn.addEventListener("click", function(){
+    testAns.style.display = "block"
     testBtn.innerHTML = "Answer"
+    if(testAns.value == Answers[0]){
+        console.log("SUS")  
+    }
+    console.log(Answers[0])
     testAns.value = ""
     if (testInd < Questions.length){
         testInd += 1
     }
-    if(testInd == Questions.length){
-        testInd --
-    }
     testQue.innerHTML = QuestionsTest[0]
     QuestionsTest = QuestionsTest.slice(1)
+    Answers = Answers.slice(1)
     renderTest()
-    console.log(QuestionsTest)
 })
