@@ -129,3 +129,40 @@ li {
 #testBtn:hover {
     background-color: rgb(36, 180, 36);
 }
+
+#showBtn {
+    max-height: 90px;
+    border-radius: 100px;
+    border: none;
+    background-color: rgb(84, 212, 44);
+    font-size: 20px;
+    width: 80px;
+    padding: 0.2em;
+    cursor: pointer;
+}
+
+
+#showBtn:hover {
+    background-color: rgb(80, 190, 47);
+}
+
+#closeBtn {
+    max-height: 90px;
+    height: 70px;
+    border-radius: 100px;
+    border: none;
+    background-color: rgb(231, 35, 35);
+    font-size: 20px;
+    width: 80px;
+    padding: 0.2em;
+    cursor: pointer;
+}
+
+#closeBtn:hover {
+    background-color: rgb(156, 41, 33);
+}
+
+#testAns {
+    margin-right: auto;
+    margin-left: auto;
+}
