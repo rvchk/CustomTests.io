@@ -1,7 +1,7 @@
 // Create a Question
 let QuestionsTest = []
 let Questions = []
-let Answers = [1]
+let Answers = []
 let que = document.querySelector("#que")
 let ans = document.querySelector("#ans")
 let create = document.querySelector("#create")
@@ -86,6 +86,8 @@ delBtn.addEventListener("dblclick", function(){
     Questions = []
     QuestionsTest = []
     Answers = []
+    showBtn.style.display = "none"
+    closeBtn.style.display = "none"
     Render()
     renderTest()
 })
@@ -111,21 +113,35 @@ let test = document.querySelector("#test")
 let testQue = document.querySelector("#testQue")
 let testAns = document.querySelector("#testAns")
 let testBtn = document.querySelector("#testBtn")
+let ansTheQue = document.querySelector("#ansTheQue")
 let testInd = 0
+let RightAns = 0
 testAns.style.display = "none"
 Answers.unshift("0")
 
 function renderTest(){
     test.innerHTML = `TEST ${testInd}/${Questions.length}`
+    if (Answers.length == 0){
+        testQue.innerHTML = `Result is ${RightAns}/${Questions.length}`
+        testAns.style.display = "none"
+        testBtn.innerHTML = "START"
+        ansTheQue.innerHTML = ""
+        QuestionsTest = localTest
+        Answers = localAns
+        testInd = 0
+        RightAns = 0
+        renderTest()
+    }
 }
 
 testBtn.addEventListener("click", function(){
+    testQue.innerHTML = QuestionsTest[0]
+    ansTheQue.innerHTML = "Answer the Question"
     testAns.style.display = "block"
     testBtn.innerHTML = "Answer"
     if(testAns.value == Answers[0]){
-        console.log("SUS")  
+        RightAns += 1
     }
-    console.log(Answers[0])
     testAns.value = ""
     if (testInd < Questions.length){
         testInd += 1
@@ -134,4 +150,5 @@ testBtn.addEventListener("click", function(){
     QuestionsTest = QuestionsTest.slice(1)
     Answers = Answers.slice(1)
     renderTest()
+    console.log(Answers)
 })
