@@ -86,12 +86,13 @@ delBtn.addEventListener("dblclick", function(){
     localStorage.clear()
     Questions = []
     QuestionsTest = []
-    Answers = []
     testQue = []
+    Answers = ["0"]
     showBtn.style.display = "none"
     closeBtn.style.display = "none"
     Render()
     renderTest()
+    location.reload()
     console.log(Answers)
 })
 
@@ -141,6 +142,10 @@ testBtn.addEventListener("click", function(){
     ansTheQue.innerHTML = "Answer the Question"
     testAns.style.display = "block"
     testBtn.innerHTML = "Answer"
+    if (!Questions.length){
+        QueStart = false
+        renderTest()
+    }
     if(testAns.value == Answers[0]){
         RightAns += 1
     }
@@ -154,4 +159,3 @@ testBtn.addEventListener("click", function(){
     renderTest()
     console.log(Answers)
 })
-
