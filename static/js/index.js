@@ -1,4 +1,5 @@
 // Create a Question
+let QueStart = true
 let QuestionsTest = []
 let Questions = []
 let Answers = ["0"]
