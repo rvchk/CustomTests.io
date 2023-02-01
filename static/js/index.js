@@ -1,7 +1,7 @@
 // Create a Question
 let QuestionsTest = []
 let Questions = []
-let Answers = []
+let Answers = ["0"]
 let que = document.querySelector("#que")
 let ans = document.querySelector("#ans")
 let create = document.querySelector("#create")
@@ -51,6 +51,7 @@ create.addEventListener("click", function(){
         localStorage.setItem("Answers", JSON.stringify(Answers))
         Render()
         renderTest()
+        console.log(Answers)
     }
 })
 
@@ -86,10 +87,12 @@ delBtn.addEventListener("dblclick", function(){
     Questions = []
     QuestionsTest = []
     Answers = []
+    testQue = []
     showBtn.style.display = "none"
     closeBtn.style.display = "none"
     Render()
     renderTest()
+    console.log(Answers)
 })
 
 
@@ -117,11 +120,10 @@ let ansTheQue = document.querySelector("#ansTheQue")
 let testInd = 0
 let RightAns = 0
 testAns.style.display = "none"
-Answers.unshift("0")
 
 function renderTest(){
     test.innerHTML = `TEST ${testInd}/${Questions.length}`
-    if (Answers.length == 0){
+    if (!Answers.length){
         testQue.innerHTML = `Result is ${RightAns}/${Questions.length}`
         testAns.style.display = "none"
         testBtn.innerHTML = "START"
@@ -152,3 +154,4 @@ testBtn.addEventListener("click", function(){
     renderTest()
     console.log(Answers)
 })
+
