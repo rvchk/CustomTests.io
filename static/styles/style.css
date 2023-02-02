@@ -169,6 +169,13 @@ li {
     margin-left: auto;
 }
 
+#madeBy {
+    color: rgba(255, 255, 255, 0.274);
+    margin-right: 20px;
+    font-size: 14px;
+    float: right;
+}
+
 @media (max-width: 750px) {
     .questions {
         display: grid;
