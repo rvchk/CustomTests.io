@@ -166,3 +166,11 @@ li {
     margin-right: auto;
     margin-left: auto;
 }
+
+@media (max-width: 750px) {
+    .questions {
+        display: grid;
+        grid-column: 3/6;
+        margin-top: 120px;
+    }
+}
