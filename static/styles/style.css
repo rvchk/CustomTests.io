@@ -134,7 +134,8 @@ li {
     height: 70px;
     border-radius: 100px;
     border: none;
-    background-color: rgb(207, 207, 207);
+    color: white;
+    background-color: rgb(38, 135, 199);
     font-size: 20px;
     width: 100px;
     padding: 0.2em;
@@ -143,7 +144,7 @@ li {
 
 
 #showBtn:hover {
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(35, 125, 185);
 }
 
 #closeBtn {
@@ -153,7 +154,7 @@ li {
     border-radius: 100px;
     border: none;
     border-color: green;
-    background-color: rgb(88, 88, 88);
+    background-color: rgb(33, 107, 156);
     font-size: 20px;
     width: 100px;
     padding: 0.2em;
@@ -161,7 +162,7 @@ li {
 }
 
 #closeBtn:hover {
-    background-color: rgb(71, 71, 71);
+    background-color: rgb(23, 81, 119);
 }
 
 #testAns {
