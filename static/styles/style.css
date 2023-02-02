@@ -182,4 +182,15 @@ li {
         grid-column: 3/6;
         margin-top: 120px;
     }
+    input {
+        width: 250px;
+    }
+    body {
+        font-size: 18px;
+    }
+    #testBtn {
+        width: 150px;
+        padding: 0.5em;
+        font-size: 18px;
+    }
 }
