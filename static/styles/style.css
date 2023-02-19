@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-    max-width: 350px;
+    max-width: 400px;
     max-height: 500px;
     display: grid;
     grid-column: 3/6;
@@ -222,6 +222,7 @@ li {
     }
     .container {
         padding-left: 10px;
+        max-width: 350px;
     }
     hr {
         width: 270px;
