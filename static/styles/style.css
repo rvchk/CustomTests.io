@@ -33,7 +33,6 @@ body {
 
 hr {
     width: 350px;
-    margin-right: 50px;
     color: rgb(0, 195, 255);
 }
 
@@ -201,7 +200,7 @@ li {
     float: right;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 850px) {
     .questions {
         display: grid;
         grid-column: 3/6;
@@ -219,7 +218,7 @@ li {
         font-size: 18px;
     }
     .test {
-        height: 280px;
+        height: 350px;
     }
     .container {
         padding-left: 10px;
