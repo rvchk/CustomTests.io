@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Kodchasan&display=swap');
 body {
-    color: white;
+    color: black;
     background: linear-gradient(to right, #32c3ce, #5680da);
     grid-column: 1/12;
     font-family: Poppins;
@@ -17,18 +17,29 @@ body {
 }
 
 .container {
+    max-width: 400px;
     max-height: 500px;
     display: grid;
     grid-column: 3/6;
+    background-color: white;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    border-radius: 10px;
 }
 
 .container p {
     font-size: 46px;
-    margin-top: 100px;
+}
+
+hr {
+    width: 350px;
+    margin-right: 50px;
+    color: rgb(0, 195, 255);
 }
 
 input {
-    border: none;
+    background-color: #32c4ce11;
+    border-color: #439ce6;
     border-radius: 5px;
     padding: 0.5em;
     width: 350px;
@@ -40,7 +51,7 @@ input {
 
 #createQUE {
     font-family: Kodchasan;
-    color: white;
+    color: black;
 }
 
 #create {
@@ -101,14 +112,25 @@ li {
 }
 
 .questions {
+    width: 250px;
     display: grid;
     grid-column: 6/9;
+    background-color: white;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
 }
 
 .test {
-    height: 700px;
+    height: 400px;
     margin-top: 100px;
     text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 80px;
+    margin-inline: 15px;
+    margin-bottom: 0;
 }
 
 
@@ -130,9 +152,9 @@ li {
 }
 
 #showBtn {
-    max-height: 90px;
-    height: 70px;
-    border-radius: 100px;
+    max-height: 60px;
+    height: 40px;
+    border-radius: 5px;
     border: none;
     color: white;
     background-color: rgb(38, 135, 199);
@@ -149,9 +171,9 @@ li {
 
 #closeBtn {
     color: white;
-    max-height: 90px;
-    height: 70px;
-    border-radius: 100px;
+    max-height: 60px;
+    height: 40px;
+    border-radius: 5px;
     border: none;
     border-color: green;
     background-color: rgb(33, 107, 156);
@@ -193,5 +215,11 @@ li {
         width: 150px;
         padding: 0.5em;
         font-size: 18px;
+    }
+    .test {
+        height: 280px;
+    }
+    .container {
+        padding-left: 10px;
     }
 }
