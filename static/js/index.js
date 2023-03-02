@@ -1,5 +1,4 @@
-// Create a Question
-let QueStart = true
+// Get All Necessary Definitions
 let QuestionsTest = []
 let Questions = []
 let Answers = ["0"]
@@ -16,74 +15,90 @@ let showBtn = document.querySelector("#showBtn")
 let closeBtn = document.querySelector("#closeBtn")
 showBtn.style.display = "none"
 closeBtn.style.display = "none"
+let Show_Close = document.querySelector("#Show-CLose-Check")
+//
 
-
-
-if (local){
+// LocalWork
+if (local,localTest,localAns){
     Questions = local
-    Render()
-}
-if (localTest){
     QuestionsTest = localTest
-    Render()
-}
-if (localAns){
     Answers = localAns
     Render()
 }
+//
 
-
-create.addEventListener("click", function(){
-    if (Questions.length > 10){
-        listQue.innerHTML = ""
-    }
-
+// Create Definition
+create.addEventListener("click", () => {
+    // Check || If All Fields are Empty
     if (que.value === "" && ans.value === ""){
         Render()
     }
     else {
+        // Add all Parameters in Arrays
         Questions.push(`${que.value} ==> ${ans.value}`)
         QuestionsTest.push(`${que.value} ==> `)
         Answers.push(`${ans.value}`)
+        // Get Zero Inf in Input Field
         que.value = ""
         ans.value = ""
+        // Set all Arrays in LocalStorage
         localStorage.setItem('Questions', JSON.stringify(Questions))
         localStorage.setItem("QuestionsTest", JSON.stringify(QuestionsTest))
         localStorage.setItem("Answers", JSON.stringify(Answers))
+        //
         Render()
         renderTest()
-        console.log(Answers)
     }
 })
+//
 
-
+//
 function Render(){
+    // Create empty List
     let list = ""
-    for (i = 0; i < Questions.length; i++){
+    // To check Every Question
+    Questions.map((x)=> {
+        // Add every <li> At <ul>
         list += `
         <li>
-            ${Questions[i]}
+            ${x}
         </li>`
-    }
-    listQue.innerHTML = list
-    if (Questions.length > 5){
-        listQue.innerHTML = ""
-        showBtn.style.display = "block"
-    }
-    showBtn.addEventListener("click", function(){
-        listQue.innerHTML = list
-        closeBtn.style.display = "block"
-        showBtn.style.display = "none"
     })
-    closeBtn.addEventListener("click", function(){
+    
+    // Shows the list on WebPage
+    listQue.innerHTML = list
+    // If there will be to many Questions on the Page
+    if (Questions.length > 5){
+        // Hide list of Questions
         listQue.innerHTML = ""
-        closeBtn.style.display = "none"
+        // Then reveal ShowBtn
         showBtn.style.display = "block"
+        document.querySelector("h3").style.display = "none"
+    }
+    showBtn.addEventListener("click", () => {
+        // If Show button has been Clicked, we Shows the ListQue
+        listQue.innerHTML = list
+        // Add the CloseBtn
+        closeBtn.style.display = "block"
+        // And hide ShowBtn
+        showBtn.style.display = "none"
+        document.querySelector("h3").style.display = "block"
+
+    })
+    closeBtn.addEventListener("click", () => {
+        // If Close button has been clicked, We Hide list
+        listQue.innerHTML = ""
+        // Hide the CloseBtn
+        closeBtn.style.display = "none"
+        // And Reveal ShowBtn
+        showBtn.style.display = "block"
+        document.querySelector("h3").style.display = "none"
     })
 }
+//
 
-
-delBtn.addEventListener("dblclick", function(){
+// Button to Clear all Parametres and Questions
+delBtn.addEventListener("dblclick", () => {
     localStorage.clear()
     Questions = []
     QuestionsTest = []
@@ -91,72 +106,23 @@ delBtn.addEventListener("dblclick", function(){
     Answers = ["0"]
     showBtn.style.display = "none"
     closeBtn.style.display = "none"
+    document.querySelector("h3").style.display = "block"
     Render()
     renderTest()
-    location.reload()
-    console.log(Answers)
 })
+//
 
-
-delLastBtn.addEventListener("dblclick", function(){
-    localStorage.Answers
-    localStorage.Answers = JSON.stringify(Answers.slice(0, -1))
-    localStorage.QuestionsTest
-    localStorage.QuestionsTest = JSON.stringify(QuestionsTest.slice(0, -1))
-    localStorage.Questions
-    localStorage.Questions = JSON.stringify(Questions.slice(0, -1))
+// Function To DeleteLast Item
+delLastBtn.addEventListener("dblclick", () => {
+    // Deleting Last Item From Array
     Answers.pop()
     Questions.pop()
     QuestionsTest.pop()
+    // And Then Set his Value to LocalStorage
+    localStorage.setItem("Questions",JSON.stringify(Questions))
+    localStorage.setItem("QuestionsTest",JSON.stringify(QuestionsTest))
+    localStorage.setItem("Answers",JSON.stringify(Answers))
     Render()
     renderTest()
 })
-
-
-// Test
-let test = document.querySelector("#test")
-let testQue = document.querySelector("#testQue")
-let testAns = document.querySelector("#testAns")
-let testBtn = document.querySelector("#testBtn")
-let ansTheQue = document.querySelector("#ansTheQue")
-let testInd = 0
-let RightAns = 0
-testAns.style.display = "none"
-
-function renderTest(){
-    test.innerHTML = `TEST ${testInd}/${Questions.length}`
-    if (!Answers.length){
-        testQue.innerHTML = `Result is ${RightAns}/${Questions.length}`
-        testAns.style.display = "none"
-        testBtn.innerHTML = "START"
-        ansTheQue.innerHTML = ""
-        QuestionsTest = localTest
-        Answers = localAns
-        testInd = 0
-        RightAns = 0
-        renderTest()
-    }
-}
-
-testBtn.addEventListener("click", function(){
-    testQue.innerHTML = QuestionsTest[0]
-    ansTheQue.innerHTML = "Answer the Question"
-    testAns.style.display = "block"
-    testBtn.innerHTML = "Answer"
-    if (!Questions.length){
-        QueStart = false
-        renderTest()
-    }
-    if(testAns.value == Answers[0]){
-        RightAns += 1
-    }
-    testAns.value = ""
-    if (testInd < Questions.length){
-        testInd += 1
-    }
-    testQue.innerHTML = QuestionsTest[0]
-    QuestionsTest = QuestionsTest.slice(1)
-    Answers = Answers.slice(1)
-    renderTest()
-    console.log(Answers)
-})
+//
