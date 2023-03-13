@@ -16,7 +16,6 @@ let showBtn = document.querySelector("#showBtn")
 let closeBtn = document.querySelector("#closeBtn")
 showBtn.style.display = "none"
 closeBtn.style.display = "none"
-let Show_Close = document.querySelector("#Show-CLose-Check")
 //
 
 // LocalWork

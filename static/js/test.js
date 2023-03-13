@@ -7,7 +7,7 @@ let testInd = 0
 let RightAns = 0
 testAns.style.display = "none"
 
-function renderTest(){
+renderTest = () => {
     test.innerHTML = `TEST ${testInd}/${Questions.length}`
     if (!Answers.length){
         testQue.innerHTML = `Result is ${RightAns}/${Questions.length}`

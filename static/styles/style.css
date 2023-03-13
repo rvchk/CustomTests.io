@@ -17,8 +17,8 @@ body {
 }
 
 .container {
-    max-width: 400px;
-    max-height: 500px;
+    max-width: 380px;
+    max-height: 1000px;
     display: grid;
     grid-column: 3/6;
     background-color: white;
@@ -51,6 +51,16 @@ input {
 #createQUE {
     font-family: Kodchasan;
     color: black;
+}
+
+#ans {
+    margin-bottom: 20px;
+}
+
+#Corans {
+    font-family: Kodchasan;
+    font-weight: bolder;
+    margin-bottom: 50px;
 }
 
 #create {
@@ -112,6 +122,25 @@ li {
     background-color: rgb(23, 77, 121);
 }
 
+#deleteFirst {
+    font-family: Kodchasan;
+    max-height: 40px;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    color: rgb(82, 177, 255);
+    background-color: rgb(28, 91, 143);
+    font-size: 24px;
+    margin-top: 20px;
+    width: 150px;
+    padding: 0.2em;
+    cursor: pointer;
+}
+
+#deleteFirst:hover {
+    background-color: rgb(23, 77, 121);
+}
+
 .questions {
     width: 250px;
     display: grid;
@@ -133,7 +162,6 @@ li {
     margin-inline: 15px;
     margin-bottom: 0;
 }
-
 
 
 #testBtn {
@@ -194,11 +222,78 @@ li {
 }
 
 #madeBy {
-    color: rgba(255, 255, 255, 0.274);
+    color: rgba(255, 255, 255, 0.281);
     margin-right: 20px;
     font-size: 14px;
     float: right;
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.062);
+    height: 70px;
+}
+.logo a {
+    padding-top: 5px;
+    margin-left: 80px;
+    font-family: Kodchasan;
+    text-decoration: none;
+    color: white;
+    font-size: 36px;
+}
+
+.urls a {
+    padding-top: 5px;
+    margin-left: 100px;
+    font-family: Kodchasan;
+    color: white;
+    font-size: 24px;
+    margin-right: 50px;
+    margin-left: 0;
+    text-decoration: none;
+}
+
+.urls a:hover {
+    text-decoration: underline;
+}
+
+#HowMany {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+#ansButton {
+    max-height: 40px;
+    border-radius: 5px;
+    color: white;
+    border-color: rgb(44, 136, 212);
+    background-color: rgb(45, 148, 233);
+    font-size: 18px;
+    margin-top: 20px;
+    width: 105px;
+    padding: 0.2em;
+    cursor: pointer;
+}
+
+.correctAns {
+    font-family: Kodchasan;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 850px) {
     .questions {
@@ -222,9 +317,31 @@ li {
     }
     .container {
         padding-left: 10px;
-        max-width: 350px;
     }
     hr {
-        width: 270px;
+        width: 280px;
+    }
+    .logo a {
+        margin-left: 10px;
+        font-size: 36px;
+    }
+    .urls a {
+        font-size: 24px;
+        margin-right: 20px;
+    }
+    #ans {
+        width: 190px;
+    }
+    #ansButton {
+        max-height: 40px;
+        border-radius: 5px;
+        color: white;
+        border-color: rgb(44, 136, 212);
+        background-color: rgb(45, 148, 233);
+        font-size: 18px;
+        margin-top: 20px;
+        width: 75px;
+        padding: 0.2em;
+        cursor: pointer;
     }
 }
