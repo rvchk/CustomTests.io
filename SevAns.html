@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/imgs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/imgs/favicon-16x16.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>CusT</title>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <a href="#">CusT</a>
+        </div>
+        <div class="urls">
+            <a href="index.html">Classic Test</a>
+            <a href="SevAns.html">Several Answers</a>
+        </div>
+    </div>
+    <div class="mainContainer">
+        <div class="container">
+            <p id="createQUE">Create a Question:</p>
+            <hr>
+            Input the Question <input id="que" type="text" min="1" max="100">
+            <div class="answers-container">
+                <div class="answers">
+                    <div class="correctAns">
+                        Input CorrectAns <input id="Corans" type="text" min="1" max="100">
+                        <hr>
+                    </div>
+                        Input the Answer  <input id="ans" type="text" min="1" max="100">
+                        Input the Answer  <input id="ans" type="text" min="1" max="100">
+                        Input the Answer  <input id="ans" type="text" min="1" max="100">
+                    </div>
+            </div>
+            <hr>
+            <button id="create">Create</button>
+        </div>
+        <div class="questions">
+            <button id="showBtn">Show</button>
+            <button id="closeBtn">Close</button>
+            <h3>Questions:</h3>
+            <ul id="listQue"></ul>
+            <div class="deletes">
+                <button id="deleteFirst">Delete First</button>
+                <button id="deleteAll">Delete All</button>
+                <button id="deleteLast">Delete Last</button>
+            </div>
+        </div>
+    </div>
+    <div class="test">
+        <h1 id="test">TEST 0/</h1>
+        <p id="testQue">Question: create a que</p>
+        <h5 id="ansTheQue">Answer the Question</h5>
+        <div class="ans">
+            
+        </div>
+        <input id="testAns" type="text" min="1" max="100">
+        <button id="testBtn">START</button>
+    </div>
+    <p id="madeBy">Made by Rovchak Matvei</p>
+
+    <script src="static/js/SevAnswers.js"></script>
+    <script src="static/js/testSevAns.js"></script>
+</body>
+</html>
