@@ -344,4 +344,24 @@ li {
         padding: 0.2em;
         cursor: pointer;
     }
+    .urls a {
+        font-size: 20px;
+    }
+    .logo a {
+        font-size: 26px;
+    }
+}
+
+
+
+@media (max-width : 500px) {
+    #ans {
+        width: 150px;
+    }
+    .logo a {
+        font-size: 26px;
+    }
+    .urls a {
+        font-size: 16px;
+    }
 }
