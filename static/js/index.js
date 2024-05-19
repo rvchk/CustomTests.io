@@ -16,7 +16,11 @@ let showBtn = document.querySelector("#showBtn")
 let closeBtn = document.querySelector("#closeBtn")
 showBtn.style.display = "none"
 closeBtn.style.display = "none"
-//
+// alert function
+
+function alert() {
+    alert("This is not working properly, I Should solve it one day)")
+}
 
 // LocalWork
 if (local,localTest,localAns){
