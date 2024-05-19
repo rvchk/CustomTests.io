@@ -21,6 +21,10 @@ let closeBtn = document.querySelector("#closeBtn")
 showBtn.style.display = "none"
 closeBtn.style.display = "none"
 
+function alert() {
+    alert("This is not working properly, I Should solve it one day)")
+}
+
 if (localSEVANS,localTestSEVANS,localAnsSEVANS){
     QuestionsSEVANS = localSEVANS
     QuestionsTestSEVANS = localTestSEVANS
