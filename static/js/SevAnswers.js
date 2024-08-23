@@ -1,3 +1,5 @@
+alert("This function working not properly, don't mind it
+
 let choosedAns = document.querySelector("#HowMany")
 let CorAns = document.querySelector("#Corans")
 let QuestionsTestSEVANS = [0]
