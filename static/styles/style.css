@@ -17,6 +17,7 @@ body {
 }
 
 .container {
+    box-shadow: 0 2rem 3rem rgb(0 0 0 / 47%);
     max-width: 380px;
     max-height: 1000px;
     display: grid;
@@ -142,6 +143,7 @@ li {
 }
 
 .questions {
+    box-shadow: 0 2rem 3rem rgb(0 0 0 / 47%);
     width: 250px;
     display: grid;
     grid-column: 6/9;
@@ -153,6 +155,7 @@ li {
 }
 
 .test {
+    box-shadow: 0 2rem 3rem rgb(0 0 0 / 47%);
     height: 400px;
     margin-top: 100px;
     text-align: center;
