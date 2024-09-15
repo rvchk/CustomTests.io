@@ -34,7 +34,7 @@ if (local,localTest,localAns){
 // Create Definition
 create.addEventListener("click", () => {
     // Check || If All Fields are Empty
-    if (que.value === "" && ans.value === ""){
+    if (que.value === "" || ans.value === ""){
         Render()
     }
     else {
