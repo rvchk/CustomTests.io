@@ -20,7 +20,6 @@ body {
     box-shadow: 0 2rem 3rem rgb(0 0 0 / 47%);
     max-width: 380px;
     max-height: 1000px;
-    display: grid;
     grid-column: 3/6;
     background-color: white;
     padding-left: 40px;
