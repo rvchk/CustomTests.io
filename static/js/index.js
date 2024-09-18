@@ -1,7 +1,6 @@
 // Get All Necessary Definitions
-let QuestionsTest = []
-let Questions = []
-let Answers = ["0"]
+let Questions = [""]
+
 let que = document.querySelector("#que")
 let ans = document.querySelector("#ans")
 let create = document.querySelector("#create")
@@ -16,17 +15,11 @@ let showBtn = document.querySelector("#showBtn")
 let closeBtn = document.querySelector("#closeBtn")
 showBtn.style.display = "none"
 closeBtn.style.display = "none"
-// alert function
-
-function alert() {
-    alert("This is not working properly, I Should solve it one day)")
-}
+//
 
 // LocalWork
-if (local,localTest,localAns){
+if (local){
     Questions = local
-    QuestionsTest = localTest
-    Answers = localAns
     Render()
 }
 //
@@ -40,16 +33,12 @@ create.addEventListener("click", () => {
     else {
         // Add all Parameters in Arrays
         Questions.push(`${que.value} ==> ${ans.value}`)
-        QuestionsTest.push(`${que.value} ==> `)
-        Answers.push(`${ans.value}`)
         // Get Zero Inf in Input Field
         que.value = ""
         ans.value = ""
         // Set all Arrays in LocalStorage
         localStorage.setItem('Questions', JSON.stringify(Questions))
-        localStorage.setItem("QuestionsTest", JSON.stringify(QuestionsTest))
-        localStorage.setItem("Answers", JSON.stringify(Answers))
-        //
+
         Render()
         renderTest()
     }
@@ -104,10 +93,7 @@ function Render() {
 // Button to Clear all Parametres and Questions
 delBtn.addEventListener("dblclick", () => {
     localStorage.clear()
-    Questions = []
-    QuestionsTest = []
-    testQue = []
-    Answers = ["0"]
+    Questions = [""]
     showBtn.style.display = "none"
     closeBtn.style.display = "none"
     document.querySelector("h3").style.display = "block"
@@ -115,7 +101,6 @@ delBtn.addEventListener("dblclick", () => {
     renderTest()
 })
 //
-
 // Function to DeleteLast Item
 delLastBtn.addEventListener("dblclick", () => {
     // Deleting Last Item From Array
