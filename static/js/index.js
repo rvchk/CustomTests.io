@@ -1,6 +1,5 @@
 // Get All Necessary Definitions
 let Questions = [""]
-
 let que = document.querySelector("#que")
 let ans = document.querySelector("#ans")
 let create = document.querySelector("#create")
@@ -47,6 +46,7 @@ create.addEventListener("click", () => {
 
 // This Fucntion Shows all Changes on the Page
 function Render() {
+    QueLength = Questions.length
     // Create empty List
     let list = ""
     // To check Every Question
@@ -104,13 +104,9 @@ delBtn.addEventListener("dblclick", () => {
 // Function to DeleteLast Item
 delLastBtn.addEventListener("dblclick", () => {
     // Deleting Last Item From Array
-    Answers.pop()
     Questions.pop()
-    QuestionsTest.pop()
     // And Then Set his Value to LocalStorage
     localStorage.setItem("Questions",JSON.stringify(Questions))
-    localStorage.setItem("QuestionsTest",JSON.stringify(QuestionsTest))
-    localStorage.setItem("Answers",JSON.stringify(Answers))
     Render()
     renderTest()
 })
@@ -118,12 +114,8 @@ delLastBtn.addEventListener("dblclick", () => {
 delFirstBtn.addEventListener("dblclick", () => {
     // Deleting First Item From Array
     Questions.shift()
-    QuestionsTest.shift()
-    Answers.shift()
     // And Then Set his Value to LocalStorage
     localStorage.setItem("Questions",JSON.stringify(Questions))
-    localStorage.setItem("QuestionsTest",JSON.stringify(QuestionsTest))
-    localStorage.setItem("Answers",JSON.stringify(Answers))
     Render()
     renderTest()
 })
