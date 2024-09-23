@@ -55,9 +55,10 @@ function Render() {
         list += `
         <li>
             ${x}
+            <button id="delbtn">Del</button>
         </li>`
     })
-    
+
     // Shows the list on WebPage
     listQue.innerHTML = list
     // If there will be to many Questions on the Page
@@ -87,6 +88,7 @@ function Render() {
         showBtn.style.display = "block"
         document.querySelector("h3").style.display = "none"
     })
+    document.querySelectorAll("#delbtn").forEach(el => el.addEventListener("click", deleteItem))
 }
 //
 
@@ -120,3 +122,10 @@ delFirstBtn.addEventListener("dblclick", () => {
     renderTest()
 })
 //
+
+function deleteItem() {
+    let index = Questions.indexOf(this.closest("li").innerText.split(" ").slice(0,3).join(" "))
+    Questions.splice(index, 1)
+    this.closest("li").remove()
+    localStorage.setItem("Questions",JSON.stringify(Questions))
+}
