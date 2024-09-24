@@ -1,4 +1,4 @@
-// Get All Necessary Definitions
+Get All Necessary Definitions
 let Questions = [""]
 let que = document.querySelector("#que")
 let ans = document.querySelector("#ans")
@@ -51,12 +51,16 @@ function Render() {
     let list = ""
     // To check Every Question
     Questions.map((x)=> {
-        // Add every <li> At <ul>
-        list += `
-        <li>
-            ${x}
-            <button id="delbtn">Del</button>
-        </li>`
+        if (x !== "") {
+            // Add every <li> At <ul>
+            list += `
+            <li>
+                ${x}
+                <button id="delbtn">
+                    <img src="static/imgs/delete-icon.png" alt="">
+                </button>
+            </li>`
+        }
     })
 
     // Shows the list on WebPage
