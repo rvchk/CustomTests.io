@@ -17,7 +17,6 @@ body {
 }
 
 .container {
-    box-shadow: 0 2rem 3rem rgb(0 0 0 / 47%);
     max-width: 380px;
     max-height: 1000px;
     grid-column: 3/6;
@@ -45,6 +44,7 @@ input {
 }
 
 #que {
+    display: block;
     margin-bottom: 50px;
 }
 
@@ -54,6 +54,7 @@ input {
 }
 
 #ans {
+    display: block;
     margin-bottom: 20px;
 }
 
@@ -81,8 +82,22 @@ input {
 }
 
 li {
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
     list-style-type: none;
     margin-bottom: 15px;
+}
+
+li:hover {
+    border-radius: 10px;
+    background-color: #f1f1f1;
+}
+
+#listQue {
+    padding: 0px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 #deleteAll {
@@ -103,46 +118,7 @@ li {
     background-color: rgb(23, 77, 121);
 }
 
-#deleteLast {
-    font-family: Kodchasan;
-    max-height: 40px;
-    display: inline-block;
-    border-radius: 5px;
-    border: none;
-    color: rgb(82, 177, 255);
-    background-color: rgb(28, 91, 143);
-    font-size: 24px;
-    margin-top: 20px;
-    width: 150px;
-    padding: 0.2em;
-    cursor: pointer;
-}
-
-#deleteLast:hover {
-    background-color: rgb(23, 77, 121);
-}
-
-#deleteFirst {
-    font-family: Kodchasan;
-    max-height: 40px;
-    display: inline-block;
-    border-radius: 5px;
-    border: none;
-    color: rgb(82, 177, 255);
-    background-color: rgb(28, 91, 143);
-    font-size: 24px;
-    margin-top: 20px;
-    width: 150px;
-    padding: 0.2em;
-    cursor: pointer;
-}
-
-#deleteFirst:hover {
-    background-color: rgb(23, 77, 121);
-}
-
 .questions {
-    box-shadow: 0 2rem 3rem rgb(0 0 0 / 47%);
     width: 250px;
     grid-column: 6/9;
     background-color: white;
@@ -152,8 +128,12 @@ li {
     border-radius: 10px;
 }
 
+.questions img {
+    width: 20px;
+    cursor: pointer;
+}
+
 .test {
-    box-shadow: 0 2rem 3rem rgb(0 0 0 / 47%);
     height: 400px;
     margin-top: 100px;
     text-align: center;
@@ -163,7 +143,6 @@ li {
     margin-inline: 15px;
     margin-bottom: 0;
 }
-
 
 #testBtn {
     font-family: Kodchasan;
@@ -234,7 +213,6 @@ li {
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.062);
     height: 70px;
-    line-height: 70px;
 }
 .logo a {
     padding-top: 5px;
@@ -285,6 +263,14 @@ li {
     font-weight: bold;
 }
 
+#delbtn {
+    border: none;
+    background-color: transparent;
+}
+#delbtn img{
+    width: 25px;
+}
+
 
 
 
@@ -320,9 +306,6 @@ li {
     .container {
         padding-left: 10px;
     }
-    hr {
-        width: 280px;
-    }
     .logo a {
         margin-left: 10px;
         font-size: 36px;
@@ -330,9 +313,6 @@ li {
     .urls a {
         font-size: 24px;
         margin-right: 20px;
-    }
-    #ans {
-        width: 190px;
     }
     #ansButton {
         max-height: 40px;
@@ -352,14 +332,14 @@ li {
     .logo a {
         font-size: 26px;
     }
+    .questions img {
+        width: 15px;
+    }
 }
 
 
 
 @media (max-width : 500px) {
-    #ans {
-        width: 150px;
-    }
     .logo a {
         font-size: 26px;
     }
