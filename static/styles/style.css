@@ -9,19 +9,17 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .logo {
     line-height: 60px;
 }
-
-
-
+.urls {
+    line-height: 60px;
+}
 .mainContainer {
     padding: 0.5em;
     display: grid;
     grid-column: 1/12;
 }
-
 .container {
     max-width: 380px;
     max-height: 1000px;
@@ -31,16 +29,13 @@ body {
     padding-bottom: 20px;
     border-radius: 10px;
 }
-
 .container p {
     font-size: 46px;
 }
-
 hr {
     width: 350px;
     color: rgb(0, 195, 255);
 }
-
 input {
     background-color: #32c4ce11;
     border-color: #439ce6;
@@ -48,28 +43,23 @@ input {
     padding: 0.5em;
     width: 350px;
 }
-
 #que {
     display: block;
     margin-bottom: 50px;
 }
-
 #createQUE {
     font-family: Kodchasan;
     color: black;
 }
-
 #ans {
     display: block;
     margin-bottom: 20px;
 }
-
 #Corans {
     font-family: Kodchasan;
     font-weight: bolder;
     margin-bottom: 50px;
 }
-
 #create {
     max-height: 40px;
     border-radius: 5px;
@@ -82,11 +72,9 @@ input {
     padding: 0.2em;
     cursor: pointer;
 }
-
 #create:hover {
     background-color: rgb(44, 134, 194);
 }
-
 li {
     padding-left: 10px;
     display: flex;
@@ -94,18 +82,15 @@ li {
     list-style-type: none;
     margin-bottom: 15px;
 }
-
 li:hover {
     border-radius: 10px;
     background-color: #f1f1f1;
 }
-
 #listQue {
     padding: 0px;
     width: 90%;
     margin: 0 auto;
 }
-
 #deleteAll {
     font-family: Kodchasan;
     max-height: 40px;
@@ -119,11 +104,9 @@ li:hover {
     padding: 0.2em;
     cursor: pointer;
 }
-
 #deleteAll:hover {
     background-color: rgb(23, 77, 121);
 }
-
 .questions {
     width: 250px;
     grid-column: 6/9;
@@ -133,12 +116,10 @@ li:hover {
     padding-bottom: 15px;
     border-radius: 10px;
 }
-
 .questions img {
     width: 20px;
     cursor: pointer;
 }
-
 .test {
     height: 400px;
     margin-top: 100px;
@@ -149,7 +130,6 @@ li:hover {
     margin-inline: 15px;
     margin-bottom: 0;
 }
-
 #testBtn {
     font-family: Kodchasan;
     padding: 0.6em;
@@ -161,11 +141,9 @@ li:hover {
     border-radius: 10px;
     cursor: pointer;
 }
-
 #testBtn:hover {
     background-color: rgb(36, 115, 180);
 }
-
 #showBtn {
     max-height: 60px;
     height: 40px;
@@ -178,12 +156,9 @@ li:hover {
     padding: 0.2em;
     cursor: pointer;
 }
-
-
 #showBtn:hover {
     background-color: rgb(35, 125, 185);
 }
-
 #closeBtn {
     color: white;
     max-height: 60px;
@@ -197,23 +172,19 @@ li:hover {
     padding: 0.2em;
     cursor: pointer;
 }
-
 #closeBtn:hover {
     background-color: rgb(23, 81, 119);
 }
-
 #testAns {
     margin-right: auto;
     margin-left: auto;
 }
-
 #madeBy {
     color: rgba(255, 255, 255, 0.281);
     margin-right: 20px;
     font-size: 14px;
     float: right;
 }
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -228,7 +199,6 @@ li:hover {
     color: white;
     font-size: 36px;
 }
-
 .urls a {
     padding-top: 5px;
     margin-left: 100px;
@@ -239,18 +209,15 @@ li:hover {
     margin-left: 0;
     text-decoration: none;
 }
-
 .urls a:hover {
     text-decoration: underline;
 }
-
 #HowMany {
     width: 100px;
     height: 30px;
     border-radius: 5px;
     margin-bottom: 30px;
 }
-
 #ansButton {
     max-height: 40px;
     border-radius: 5px;
@@ -263,12 +230,10 @@ li:hover {
     padding: 0.2em;
     cursor: pointer;
 }
-
 .correctAns {
     font-family: Kodchasan;
     font-weight: bold;
 }
-
 #delbtn {
     border: none;
     background-color: transparent;
@@ -276,18 +241,6 @@ li:hover {
 #delbtn img{
     width: 25px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media (max-width: 850px) {
     .questions {
@@ -342,8 +295,6 @@ li:hover {
         width: 15px;
     }
 }
-
-
 
 @media (max-width : 500px) {
     .logo a {
