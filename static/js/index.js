@@ -1,4 +1,4 @@
-Get All Necessary Definitions
+// Get All Necessary Definitions
 let Questions = [""]
 let que = document.querySelector("#que")
 let ans = document.querySelector("#ans")
@@ -8,8 +8,6 @@ let localTest = JSON.parse(localStorage.getItem("QuestionsTest"))
 let localAns = JSON.parse(localStorage.getItem("Answers"))
 let listQue = document.querySelector("#listQue")
 let delBtn = document.querySelector("#deleteAll")
-let delLastBtn = document.querySelector("#deleteLast")
-let delFirstBtn = document.querySelector("#deleteFirst")
 let showBtn = document.querySelector("#showBtn")
 let closeBtn = document.querySelector("#closeBtn")
 showBtn.style.display = "none"
@@ -106,27 +104,8 @@ delBtn.addEventListener("dblclick", () => {
     Render()
     renderTest()
 })
-//
-// Function to DeleteLast Item
-delLastBtn.addEventListener("dblclick", () => {
-    // Deleting Last Item From Array
-    Questions.pop()
-    // And Then Set his Value to LocalStorage
-    localStorage.setItem("Questions",JSON.stringify(Questions))
-    Render()
-    renderTest()
-})
-// Function to DeleteFirst Item
-delFirstBtn.addEventListener("dblclick", () => {
-    // Deleting First Item From Array
-    Questions.shift()
-    // And Then Set his Value to LocalStorage
-    localStorage.setItem("Questions",JSON.stringify(Questions))
-    Render()
-    renderTest()
-})
-//
 
+// Delete Item Button
 function deleteItem() {
     let index = Questions.indexOf(this.closest("li").innerText.split(" ").slice(0,3).join(" "))
     Questions.splice(index, 1)
