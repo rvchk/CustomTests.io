@@ -1,4 +1,4 @@
-alert("This function working not properly, don't mind it);
+alert("This function working not properly, don't mind it");
 
 let choosedAns = document.querySelector("#HowMany")
 let CorAns = document.querySelector("#Corans")
