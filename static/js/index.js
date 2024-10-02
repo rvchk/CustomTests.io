@@ -3,15 +3,9 @@ let Questions = [""]
 let que = document.querySelector("#que")
 let ans = document.querySelector("#ans")
 let create = document.querySelector("#create")
+let delBtn = document.querySelector("#delBtn")
 let local = JSON.parse(localStorage.getItem("Questions"))
-let localTest = JSON.parse(localStorage.getItem("QuestionsTest"))
-let localAns = JSON.parse(localStorage.getItem("Answers"))
 let listQue = document.querySelector("#listQue")
-let delBtn = document.querySelector("#deleteAll")
-let showBtn = document.querySelector("#showBtn")
-let closeBtn = document.querySelector("#closeBtn")
-showBtn.style.display = "none"
-closeBtn.style.display = "none"
 //
 
 // LocalWork
@@ -54,8 +48,8 @@ function Render() {
             list += `
             <li>
                 ${x}
-                <button id="delbtn">
-                    <img src="static/imgs/delete-icon.png" alt="">
+                <button id="delbtn" style="background-color: transparent; border: none;">
+                    <img src="static/imgs/Delete-icon (2).png" alt="">
                 </button>
             </li>`
         }
@@ -64,32 +58,6 @@ function Render() {
     // Shows the list on WebPage
     listQue.innerHTML = list
     // If there will be to many Questions on the Page
-    if (Questions.length > 5){
-        // Hide list of Questions
-        listQue.innerHTML = ""
-        // Then reveal ShowBtn
-        showBtn.style.display = "block"
-        document.querySelector("h3").style.display = "none"
-    }
-    showBtn.addEventListener("click", () => {
-        // If Show button has been Clicked, we Shows the ListQue
-        listQue.innerHTML = list
-        // Add the CloseBtn
-        closeBtn.style.display = "block"
-        // And hide ShowBtn
-        showBtn.style.display = "none"
-        document.querySelector("h3").style.display = "block"
-
-    })
-    closeBtn.addEventListener("click", () => {
-        // If Close button has been clicked, We Hide list
-        listQue.innerHTML = ""
-        // Hide the CloseBtn
-        closeBtn.style.display = "none"
-        // And Reveal ShowBtn
-        showBtn.style.display = "block"
-        document.querySelector("h3").style.display = "none"
-    })
     document.querySelectorAll("#delbtn").forEach(el => el.addEventListener("click", deleteItem))
 }
 //

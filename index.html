@@ -12,7 +12,7 @@
             <h1>CustomTests</h1>
         </div>
         <div class="SideBar-elements">
-            <a href="Questions.html">
+            <a href="index.html">
                 <div style="background-color: rgb(70, 123, 214);" class="SideBar-questions">
                     <img src="/static/imgs/Questions-icon.png" alt="">
                     <span>Questions</span>
@@ -33,19 +33,18 @@
         </div>
     </div>
     <div class="Questions">
-<<<<<<< HEAD
         <div class="Questions-column">
             <div class="Questions-create">
                 <h1>Create Question</h1>
                 <div class="Questions-input">
                     <h3>Question</h3>
-                    <input type="text" max="50">
+                    <input id="que" type="text" max="50">
                 </div>
                 <div class="Questions-input">
                     <h3>Answer</h3>
-                    <input type="text" max="50">
+                    <input id="ans" type="text" max="50">
                 </div>
-                <button>Create</button>
+                <button id="create">Create</button>
             </div>
             <div class="Questions-test">
                 <h1>Math Test</h1>
@@ -59,42 +58,8 @@
         </div>
         <div class="Questions-list">
             <h1>List of Questions</h1>
-            <ul>
-                <li>20 + 2 => 22 <img src="static/imgs/Delete-icon (2).png" alt=""> </li>
-                <li>20 + 2 => 22 <img src="static/imgs/Delete-icon (2).png" alt=""> </li>
-                <li>20 + 2 => 22 <img src="static/imgs/Delete-icon (2).png" alt=""> </li>
-                <li>20 + 2 => 22 <img src="static/imgs/Delete-icon (2).png" alt=""> </li>
-                <li>20 + 2 => 22 <img src="static/imgs/Delete-icon (2).png" alt=""> </li>
-=======
-        <div class="Questions-block">
-            <div class="Questions-inputs">
-                <div class="Question-input">
-                    <h2>Question</h2>
-                    <input type="text" placeholder="Write a question">
-                </div>
-                <div class="Answer-input">
-                    <h2>Answer</h2>
-                    <input type="text" placeholder="Write an answer">
-                </div>
-            </div>
-            <button class="Questions-button">Create</button>
-        </div>
-        <div class="Questions-list">
-            <h2>List</h2>
-            <ul>
-                <li>123 => 123</li>
-                <li>123 => 123</li>
-                <li>123 => 123</li>
-                <li>123 => 123</li>
-                <li>123 => 123</li>
-                <li>123 => 123</li>
-                <li>123 => 123</li>
-                <li>123 => 123</li>
-                <li>123 => 123</li>
-                <li>123 => 123</li>
-
->>>>>>> c6a52771c86b8f8048af17845a91c41ef68ec4d8
-            </ul>
+            <ul id="listQue"></ul>
+            <button id="delBtn">delAll</button>
         </div>
     </div>
     <!-- <div class="navbar">
@@ -134,6 +99,6 @@
 -->
 
     <script src="static/js/index.js"></script>
-    <script src="static/js/test.js"></script>
+    <script src=""></script>
 </body>
 </html>

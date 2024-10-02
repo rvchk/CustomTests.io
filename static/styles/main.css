@@ -55,7 +55,6 @@ body {
     height: 70vh;
     display: flex;
     justify-content: space-between;
-<<<<<<< HEAD
     width: 60vw;
     font-size: 20px;
     margin: 0 auto;
@@ -120,6 +119,8 @@ body {
     padding: 5px;
     font-family: Outfit;
     margin-top: 20px;
+    cursor: pointer;
+    transition: ease 200ms;
 }
 .Questions-test h1 {
     font-size: 32px;
@@ -160,39 +161,22 @@ body {
     font-size: 26px;
     padding: 10px;
     border-radius: 10px;
+    transition: ease 200ms;
+}
+.Questions-list li:hover, .Questions-column button:hover {
+    background-color: rgb(70, 123, 214);
 }
 .Questions-list img {
     width: 30px;
     height: 30px;
     cursor: pointer;
+    transition: 200ms;
+}
+.Questions-list img:hover {
+    transform: scale(1.2);
 }
 .Questions-list ul {
     margin: 0  auto;
     padding: 0;
     width: 350px;
 }
-=======
-    margin-top: 100px;
-    width: 100vw;
-    font-size: 20px;
-}
-.Questions-block {
-    margin-left: 100px;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.247);
-}
-.Questions-inputs {
-    width: 30vw;
-}
-.Questions-button {
-    padding: 20px;
-}
-.Questions-list {
-    padding: 10px;
-    border-radius: 10px;
-    width: 30vw;
-    margin-right: 100px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.247);
-}
->>>>>>> c6a52771c86b8f8048af17845a91c41ef68ec4d8
