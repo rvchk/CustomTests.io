@@ -8,25 +8,28 @@ body {
     margin: 0;
     padding: 0;
     font-family: Outfit;
+    display: flex;
 }
-.sideBar {
+.SideBar {
     width: 300px;
     background-color: rgb(95, 148, 240);
     color: white;
     height: 100vh;
+    padding-inline: 30px;
     overflow: hidden;
 }
-.sideBar-logo {
+.SideBar-logo {
+    margin-top: 50px;
     margin-bottom: 50px;
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
 }
-.sideBar-elements span {
+.SideBar-elements span {
     vertical-align: center;
     display: inline-block;
     font-size: 28px;
 }
-.sideBar-questions, .sideBar-Tests{
+.SideBar-questions, .SideBar-Tests{
     margin: 0 auto;
     display: flex;
     width: 200px;
@@ -36,12 +39,40 @@ body {
     padding-bottom: 5px;
     border-radius: 5px;
 }
-.sideBar-elements img {
+.SideBar-elements img {
     margin-right: 15px;
     vertical-align: center;
     width: 40px;
 }
-.sideBar-questions:hover, .sideBar-Tests:hover {
+.SideBar-questions:hover, .SideBar-Tests:hover {
     cursor: pointer;
     background-color: rgb(70, 123, 214);
+}
+
+.Questions {
+    height: 70vh;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    width: 100vw;
+    font-size: 20px;
+}
+.Questions-block {
+    margin-left: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.247);
+}
+.Questions-inputs {
+    width: 30vw;
+}
+.Questions-button {
+    padding: 20px;
+}
+.Questions-list {
+    padding: 10px;
+    border-radius: 10px;
+    width: 30vw;
+    margin-right: 100px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.247);
 }
