@@ -8,25 +8,29 @@ body {
     margin: 0;
     padding: 0;
     font-family: Outfit;
+    display: flex;
 }
-.sideBar {
+.SideBar {
     width: 300px;
-    background-color: rgb(95, 148, 240);
+    background-color: #549DF2;
     color: white;
     height: 100vh;
+    padding-inline: 30px;
     overflow: hidden;
+    box-shadow: 0px 4px 20px 6px rgba(0, 0, 0, 0.25);
 }
-.sideBar-logo {
+.SideBar-logo {
+    margin-top: 50px;
     margin-bottom: 50px;
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
 }
-.sideBar-elements span {
+.SideBar-elements span {
     vertical-align: center;
     display: inline-block;
     font-size: 28px;
 }
-.sideBar-questions, .sideBar-Tests{
+.SideBar-questions, .SideBar-Tests{
     margin: 0 auto;
     display: flex;
     width: 200px;
@@ -35,13 +39,134 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 5px;
+    transition: ease 200ms;
 }
-.sideBar-elements img {
+.SideBar-elements img {
     margin-right: 15px;
     vertical-align: center;
     width: 40px;
 }
-.sideBar-questions:hover, .sideBar-Tests:hover {
+.SideBar-questions:hover, .SideBar-Tests:hover {
     cursor: pointer;
     background-color: rgb(70, 123, 214);
+}
+
+.Questions {
+    height: 70vh;
+    display: flex;
+    justify-content: space-between;
+    width: 60vw;
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.Questions h1,h3 {
+    margin: 0;
+}
+.Questions-test, .Questions-create, .Questions-list {
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 20px 3px rgba(0, 0, 0, 0.08);
+    height: 350px;
+}
+.Questions-test {
+    margin-top: 50px;
+}
+.Questions-list {
+    height: 750px;
+}
+.Questions-list img {
+    width: 30px;
+}
+.Questions-list li {
+    background-color: #549DF2;
+    margin-bottom: 10px;
+}
+.Questions-create h1 {
+    padding-top: 15px;
+    padding-bottom: 40px;
+    text-align: center;
+    font-size: 32px;
+}
+.Questions-input {
+    margin: 0 auto;
+    width: 230px;
+}
+.Questions-input h3{
+    font-size: 22px;
+    font-weight: 400;
+    text-align: left;
+}
+.Questions-input input {
+    width: 210px;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid #E3E3E3 1px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.Questions-create button, .Questions-test button  {
+    color: white;
+    border-radius: 10px;
+    border: none;
+    background-color: #549DF2;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    width: 250px;
+    padding: 5px;
+    font-family: Outfit;
+    margin-top: 20px;
+}
+.Questions-test h1 {
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+.Questions-stats h1 {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 40px;
+    font-weight: 400;
+    padding-top: 0px;
+    margin-left: 40px;
+    padding-bottom: 25px;
+    text-align: left;
+}
+.Questions-stats span {
+    color: #549DF2;
+    font-weight: 600;
+}
+.Questions-test button {
+    margin-top: 0px;
+}
+.Questions-list h1 {
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+.Questions-list li {
+    list-style-type: none;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 26px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.Questions-list img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.Questions-list ul {
+    margin: 0  auto;
+    padding: 0;
+    width: 350px;
 }
