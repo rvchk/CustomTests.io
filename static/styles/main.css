@@ -82,6 +82,9 @@ body {
     background-color: #549DF2;
     margin-bottom: 10px;
 }
+.Questions-list ul li {
+    width: auto;
+}
 .Questions-create h1 {
     padding-top: 15px;
     padding-bottom: 40px;
