@@ -8,13 +8,16 @@ let lengthUI = document.querySelector("#length-UI")
 let local = JSON.parse(localStorage.getItem("Questions"))
 let listQue = document.querySelector("#listQue")
 let completedUI = document.querySelector("#completed-UI")
-let x = localStorage.getItem('CompletedTimes');
-completedUI.innerHTML = x
+let avgTimeUI = document.querySelector("#avgTime")
+let Completed = localStorage.getItem('CompletedTimes');
+let TimeArray = localStorage.getItem('TestTimers');
 //
 
 // LocalWork
 if (local){
     Questions = local
+    completedUI.innerHTML = Completed
+    avgTimeUI.innerHTML = Math.round(TimeArray.reduce((x,y)=> x+y) / TimeArray.length)
     Render()
 }
 //
