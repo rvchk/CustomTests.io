@@ -4,8 +4,12 @@ let que = document.querySelector("#que")
 let ans = document.querySelector("#ans")
 let create = document.querySelector("#create")
 let delBtn = document.querySelector("#delBtn")
+let lengthUI = document.querySelector("#length-UI")
 let local = JSON.parse(localStorage.getItem("Questions"))
 let listQue = document.querySelector("#listQue")
+let completedUI = document.querySelector("#completed-UI")
+let x = localStorage.getItem('CompletedTimes');
+completedUI.innerHTML = x
 //
 
 // LocalWork
@@ -57,6 +61,7 @@ function Render() {
 
     // Shows the list on WebPage
     listQue.innerHTML = list
+    lengthUI.innerHTML = QueLength
     // If there will be to many Questions on the Page
     document.querySelectorAll("#delbtn").forEach(el => el.addEventListener("click", deleteItem))
 }
