@@ -26,7 +26,7 @@ renderTest = () => {
         time = setInterval(() => {
             timer++
         }, 1000);
-        console.log(TestTimers)
+
         Questions = local
         testQue.innerHTML = `Result is ${RightAns}/${QueLength}`
         testAns.style.display = "none"

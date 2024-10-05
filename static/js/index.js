@@ -3,7 +3,6 @@ let Questions = [""]
 let que = document.querySelector("#que")
 let ans = document.querySelector("#ans")
 let create = document.querySelector("#create")
-let delBtn = document.querySelector("#delBtn")
 let lengthUI = document.querySelector("#length-UI")
 let local = JSON.parse(localStorage.getItem("Questions"))
 let listQue = document.querySelector("#listQue")
