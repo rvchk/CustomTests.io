@@ -183,4 +183,70 @@ body {
     padding: 0;
     width: 350px;
 }
+.Questions-checkBox {
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    text-align: left;
+}
 
+.List {
+    border-radius: 10px;
+    box-shadow: 4px 4px 20px 3px rgba(0, 0, 0, 0.08);
+    width: 70vw;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.List h1 {
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+.List li {
+    background-color: #549DF2;
+    list-style-type: none;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-inline: 30px;
+    color: white;
+    font-size: 26px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: ease 200ms;
+}
+.List li:hover {
+    background-color: rgb(70, 123, 214);
+}
+.List img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: 200ms;
+}
+.List img:hover {
+    transform: scale(1.2);
+}
+.List ul {
+    margin: 0  auto;
+    padding: 0;
+    width: 100%;
+}
+.List-nav span {
+    font-size: 26px;
+    color: #B2B2B2;
+}
+.List-nav {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid #c0c0c02f;
+    padding: 15px 40px 15px 40px;
+    margin-bottom: 30px;
+}
+.List li p {
+    font-size: 24px;
+    margin: 0;
+    width: 20vw;
+}

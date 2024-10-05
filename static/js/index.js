@@ -11,6 +11,7 @@ let completedUI = document.querySelector("#completed-UI")
 let avgTimeUI = document.querySelector("#avgTime")
 let Completed = localStorage.getItem('CompletedTimes');
 let TimeArray = localStorage.getItem('TestTimers');
+let CheckBox = document.querySelector("#ButtonsCheck")
 //
 
 // LocalWork
@@ -24,6 +25,7 @@ if(completedUI) {
 }
 //
 
+
 // Create Definition
 create.addEventListener("click", () => {
     // Check || If All Fields are Empty
@@ -31,8 +33,13 @@ create.addEventListener("click", () => {
         Render()
     }
     else {
+        const date = new Date()
+        let CurrentDate = `${String(date).split(" ").slice(1,4).join("/")}`
+        // Pushing all data to an array
+        CheckBox.checked ? 
+        Questions.push(`${que.value} ==> ${ans.value} Button ${CurrentDate}`) :
+        Questions.push(`${que.value} ==> ${ans.value} Text ${CurrentDate}`)
         // Add all Parameters in Arrays
-        Questions.push(`${que.value} ==> ${ans.value}`)
         // Get Zero Inf in Input Field
         que.value = ""
         ans.value = ""
@@ -54,9 +61,10 @@ function Render() {
     Questions.map((x)=> {
         if (x !== "") {
             // Add every <li> At <ul>
+            // 64 stroke removes the TYPE from <li>
             list += `
             <li>
-                ${x}
+                ${x.split(" ").slice(0,3).join(" ")}
                 <button id="delbtn" style="background-color: transparent; border: none;">
                     <img src="static/imgs/Delete-icon (2).png" alt="">
                 </button>
@@ -66,7 +74,6 @@ function Render() {
 
     // Shows the list on WebPage
     listQue.innerHTML = list
-    lengthUI.innerHTML = Questions.length
     // If there will be to many Questions on the Page
     document.querySelectorAll("#delbtn").forEach(el => el.addEventListener("click", deleteItem))
 }
