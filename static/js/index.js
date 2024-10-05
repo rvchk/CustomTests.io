@@ -16,9 +16,11 @@ let TimeArray = localStorage.getItem('TestTimers');
 // LocalWork
 if (local){
     Questions = local
-    completedUI.innerHTML = Completed
-    avgTimeUI.innerHTML = Math.round(TimeArray.reduce((x,y)=> x+y) / TimeArray.length)
     Render()
+}
+if(completedUI) {
+    completedUI.innerHTML = Completed
+    TimeArray !== null? avgTimeUI.innerHTML = 0: avgTimeUI.innerHTML = Math.round(TimeArray.reduce((x,y)=> x+y) / TimeArray.length)
 }
 //
 
@@ -64,22 +66,11 @@ function Render() {
 
     // Shows the list on WebPage
     listQue.innerHTML = list
-    lengthUI.innerHTML = QueLength
+    lengthUI.innerHTML = Questions.length
     // If there will be to many Questions on the Page
     document.querySelectorAll("#delbtn").forEach(el => el.addEventListener("click", deleteItem))
 }
 //
-
-// Button to Clear all Parametres and Questions
-delBtn.addEventListener("dblclick", () => {
-    localStorage.clear()
-    Questions = [""]
-    showBtn.style.display = "none"
-    closeBtn.style.display = "none"
-    document.querySelector("h3").style.display = "block"
-    Render()
-    renderTest()
-})
 
 // Delete Item Button
 function deleteItem() {

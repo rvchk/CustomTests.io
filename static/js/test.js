@@ -3,7 +3,6 @@ let testQue = document.querySelector("#testQue")
 let testAns = document.querySelector("#testAns")
 let testBtn = document.querySelector("#testBtn")
 let ansTheQue = document.querySelector("#ansTheQue")
-testAns.style.display = "none"
 let CompletedTimes = 0
 let testInd = 0
 let RightAns = 0
