@@ -19,6 +19,7 @@ if (local){
     Render()
 }
 if(completedUI) {
+    lengthUI.innerHTML = Questions.length-1
     completedUI.innerHTML = Completed
     TimeArray !== null? avgTimeUI.innerHTML = 0: avgTimeUI.innerHTML = Math.round(TimeArray.reduce((x,y)=> x+y) / TimeArray.length)
 }

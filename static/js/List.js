@@ -14,5 +14,6 @@ Questions.map((x)=> {
     </li>`
     }
 })
-document.querySelectorAll("#delbtn").forEach(el => el.addEventListener("click", deleteItem))
+
+lengthUI.innerHTML = Questions.length-1
 fullListUI.innerHTML = FullList
