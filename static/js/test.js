@@ -20,7 +20,7 @@ if(localCompleted)  {
 renderTest = () => {
     test.innerHTML = `TEST ${testInd}/${QueLength}`
     if (Questions.length == 0){
-        timer == null ? timer=0: TestTimers.push(timer)
+        timer == null ? timer = 0: TestTimers.push(timer)
         timer = 0
         clearInterval(time)
         time = setInterval(() => {
@@ -35,7 +35,6 @@ renderTest = () => {
         testInd = 0
         RightAns = 0
         CompletedTimes++
-        console.log(CompletedTimes)
         localStorage.setItem('CompletedTimes', JSON.stringify(CompletedTimes))
         localStorage.setItem('TestTimers', JSON.stringify(TestTimers))
     }

@@ -7,8 +7,9 @@ let lengthUI = document.querySelector("#length-UI")
 let local = JSON.parse(localStorage.getItem("Questions"))
 let listQue = document.querySelector("#listQue")
 let completedUI = document.querySelector("#completed-UI")
+let Completed = JSON.parse(localStorage.getItem("CompletedTimes"))
+let avgTimeArray = JSON.parse(localStorage.getItem("TestTimers"))
 let avgTimeUI = document.querySelector("#avgTime")
-let Completed = localStorage.getItem('CompletedTimes');
 let TimeArray = localStorage.getItem('TestTimers');
 let CheckBox = document.querySelector("#ButtonsCheck")
 //
@@ -21,7 +22,7 @@ if (local){
 if(completedUI) {
     lengthUI.innerHTML = Questions.length-1
     completedUI.innerHTML = Completed
-    TimeArray !== null? avgTimeUI.innerHTML = 0: avgTimeUI.innerHTML = Math.round(TimeArray.reduce((x,y)=> x+y) / TimeArray.length)
+    TimeArray == null? avgTimeUI.innerHTML = 0: avgTimeUI.innerHTML = Math.round(avgTimeArray.reduce((x,y)=> x+y) / avgTimeArray.length)
 }
 //
 
