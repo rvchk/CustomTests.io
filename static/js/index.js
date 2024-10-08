@@ -1,7 +1,7 @@
 // Get All Necessary Definitions
 let Questions = [""]
-let que = document.querySelector("#que")
-let ans = document.querySelector("#ans")
+let questionInput = document.querySelector("#que")
+let answerInput = document.querySelector("#ans")
 let create = document.querySelector("#create")
 let lengthUI = document.querySelector("#length-UI")
 let local = JSON.parse(localStorage.getItem("Questions"))
@@ -30,23 +30,27 @@ if(completedUI) {
 // Create Definition
 create.addEventListener("click", () => {
     // Check || If All Fields are Empty
-    if (que.value === "" || ans.value === ""){
+    if (questionInput.value === "" || answerInput.value === ""){
         Render()
     }
     else {
         const date = new Date()
         let CurrentDate = `${String(date).split(" ").slice(1,4).join("/")}`
         // Pushing all data to an array
-        CheckBox.checked ? 
-        Questions.push(`${que.value} ==> ${ans.value} Button ${CurrentDate}`) :
-        Questions.push(`${que.value} ==> ${ans.value} Text ${CurrentDate}`)
+
+        if (CheckBox.checked) {
+            Questions.push(`${questionInput.value} ==> ${answerInput.value} Button ${CurrentDate}`)
+        }
+        else {
+            Questions.push(`${questionInput.value} ==> ${answerInput.value} Text ${CurrentDate}`)
+        }
+
         // Add all Parameters in Arrays
         // Get Zero Inf in Input Field
-        que.value = ""
-        ans.value = ""
+        questionInput.value = ""
+        answerInput.value = ""
         // Set all Arrays in LocalStorage
         localStorage.setItem('Questions', JSON.stringify(Questions))
-
         Render()
         renderTest()
     }
