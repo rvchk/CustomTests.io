@@ -11,7 +11,7 @@ Questions.map((question)=> {
         <p>${que.slice(-1 * 2)[0]}</p>
         <p>${que.slice(-1)}</p>
         <button id="delbtn" style="background-color: transparent; border: none;">
-        <img src="static/imgs/Delete-icon (2).png" alt="">
+        <img src="static/imgs/Icons/Delete-icon.png" alt="">
         </button>
     </li>`
 }

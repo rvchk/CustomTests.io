@@ -5,13 +5,13 @@ let answerInput = document.querySelector("#ans")
 let create = document.querySelector("#create")
 let lengthUI = document.querySelector("#length-UI")
 let local = JSON.parse(localStorage.getItem("Questions"))
-let listQue = document.querySelector("#listQue")
 let completedUI = document.querySelector("#completed-UI")
 let Completed = JSON.parse(localStorage.getItem("CompletedTimes"))
 let avgTimeArray = JSON.parse(localStorage.getItem("TestTimers"))
 let avgTimeUI = document.querySelector("#avgTime")
 let TimeArray = localStorage.getItem('TestTimers');
 let CheckBox = document.querySelector("#ButtonsCheck")
+const ListBlockUI = document.querySelector(".Questions-list")
 //
 
 // LocalWork
@@ -19,10 +19,25 @@ if (local){
     Questions = local
     Render()
 }
-if(completedUI) {
+if (completedUI) {
     lengthUI.innerHTML = Questions.length-1
     completedUI.innerHTML = Completed
-    TimeArray == null? avgTimeUI.innerHTML = 0: avgTimeUI.innerHTML = Math.round(avgTimeArray.reduce((x,y)=> x+y) / avgTimeArray.length)
+    TimeArray == "[]" ? avgTimeUI.innerHTML = 0: avgTimeUI.innerHTML = Math.round(avgTimeArray.reduce((x,y)=> x+y) / avgTimeArray.length)
+}
+if (Questions.length == 1) {
+    avgTimeArray = []
+    CompletedTimes = "0"
+    TestTimers = []
+    localStorage.setItem('CompletedTimes', JSON.stringify(Completed))
+    localStorage.setItem('TestTimers', JSON.stringify(TestTimers))
+
+    ListBlockUI.innerHTML = `
+        <div class="Error-block">
+            <h1>Oops...</h1>
+            <img src="static/imgs/Error-icon.png" alt="Error-icon">
+            <h2>You Don't have any Questions yet</h2>
+        </div>
+    `
 }
 //
 
@@ -59,6 +74,13 @@ create.addEventListener("click", () => {
 
 // This Fucntion Shows all Changes on the Page
 function Render() {
+    if (Questions.length > 1) {
+        ListBlockUI.innerHTML = `
+            <h1>List of Questions</h1>
+            <ul id="listQue"></ul>
+        `
+    }
+
     lengthUI.innerHTML = Questions.length-1
     // Create empty List
     let list = ""
@@ -72,16 +94,22 @@ function Render() {
                 ${ // Question without TYPE and DATE
                     question.split(" ").slice(0, -2).join(" ")}
                 <button id="delbtn" style="background-color: transparent; border: none;">
-                    <img src="static/imgs/Delete-icon (2).png" alt="">
+                    <img src="static/imgs/Icons/Delete-icon.png" alt="">
                 </button>
             </li>`
         }
     })
 
+    completedUI.innerHTML = Completed
+    avgTimeArray == "[]" ? avgTimeUI.innerHTML = 0: avgTimeUI.innerHTML = Math.round(avgTimeArray.reduce((x,y)=> x+y) / avgTimeArray.length)
+
     // Shows the list on WebPage
-    listQue.innerHTML = list
+    document.querySelector("#listQue").innerHTML = list
     // If there will be to many Questions on the Page
     document.querySelectorAll("#delbtn").forEach(el => el.addEventListener("click", deleteItem))
+
+    localStorage.setItem('CompletedTimes', JSON.stringify(Completed))
+    localStorage.setItem('TestTimers', JSON.stringify(TimeArray))
 }
 //
 
@@ -91,4 +119,16 @@ function deleteItem() {
     Questions.splice(index, 1)
     this.closest("li").remove()
     localStorage.setItem("Questions",JSON.stringify(Questions))
+    
+    if (Questions.length == 1) {
+        Completed = 0
+        ListBlockUI.innerHTML = `
+            <div class="Error-block">
+                <h1>Oops...</h1>
+                <img src="static/imgs/Error-icon.png" alt="Error-icon">
+                <h2>You Don't have any Questions yet</h2>
+            </div>
+        `
+    }
+    Render()
 }
