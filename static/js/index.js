@@ -55,17 +55,18 @@ create.addEventListener("click", () => {
 
 // This Fucntion Shows all Changes on the Page
 function Render() {
-    QueLength = Questions.length
+    lengthUI.innerHTML = Questions.length-1
     // Create empty List
     let list = ""
     // To check Every Question
-    Questions.map((x)=> {
-        if (x !== "") {
+    Questions.map((question)=> {
+        if (question !== "") {
             // Add every <li> At <ul>
-            // 64 stroke removes the TYPE from <li>
+            // 69 stroke removes the TYPE from <li>
             list += `
             <li>
-                ${x.split(" ").slice(0,3).join(" ")}
+                ${ // Question without TYPE and DATE
+                    question.split(" ").slice(0, -2).join(" ")}
                 <button id="delbtn" style="background-color: transparent; border: none;">
                     <img src="static/imgs/Delete-icon (2).png" alt="">
                 </button>
