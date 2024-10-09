@@ -10,6 +10,7 @@ body {
     font-family: Outfit;
     display: flex;
 }
+
 .SideBar {
     width: 250px;
     background-color: #549DF2;
@@ -51,255 +52,6 @@ body {
     background-color: rgb(70, 123, 214);
 }
 
-.Questions {
-    height: 70vh;
-    display: flex;
-    justify-content: space-between;
-    width: 55vw;
-    font-size: 20px;
-    margin: 0 auto;
-    margin-top: 50px;
-}
-.Questions h1,h3 {
-    margin: 0;
-}
-.Questions-test, .Questions-create, .Questions-list {
-    width: 400px;
-    border-radius: 10px;
-    box-shadow: 4px 4px 20px 3px rgba(0, 0, 0, 0.08);
-    height: 350px;
-}
-.Questions-test {
-    margin-top: 50px;
-}
-.Questions-list {
-    height: 750px;
-}
-.Questions-list img {
-    width: 30px;
-}
-.Questions-list li {
-    background-color: #549DF2;
-    margin-bottom: 10px;
-}
-.Questions-list ul li {
-    width: auto;
-}
-.Questions-create h1 {
-    padding-top: 15px;
-    padding-bottom: 40px;
-    text-align: center;
-    font-size: 32px;
-}
-.Questions-input {
-    margin: 0 auto;
-    width: 230px;
-}
-.Questions-input h3{
-    font-size: 22px;
-    font-weight: 400;
-    text-align: left;
-}
-.Questions-input input {
-    width: 210px;
-    padding: 10px;
-    border-radius: 10px;
-    border: solid #E3E3E3 1px;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-.Questions-create button,
-.Questions-test button,
-.List-Error-block button  {
-    color: white;
-    border-radius: 10px;
-    border: none;
-    background-color: #549DF2;
-    font-size: 32px;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    text-align: center;
-    width: 250px;
-    padding: 5px;
-    font-family: Outfit;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: ease 200ms;
-}
-.Questions-test h1 {
-    font-size: 32px;
-    text-align: center;
-    padding-bottom: 30px;
-    padding-top: 10px;
-}
-.Questions-stats h1 {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 40px;
-    font-weight: 400;
-    padding-top: 0px;
-    margin-left: 40px;
-    padding-bottom: 25px;
-    text-align: left;
-}
-.Questions-stats span {
-    color: #549DF2;
-    font-weight: 600;
-}
-.Questions-test button {
-    margin-top: 0px;
-}
-.Questions-list h1 {
-    font-size: 32px;
-    text-align: center;
-    padding-bottom: 40px;
-}
-.Questions-list li {
-    list-style-type: none;
-    width: 300px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    color: white;
-    font-size: 26px;
-    padding: 10px;
-    border-radius: 10px;
-    transition: ease 200ms;
-}
-.Questions-list li:hover,
-.Questions-column button:hover,
-.List-Error-block button:hover {
-    background-color: rgb(70, 123, 214);
-}
-.Questions-list img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    transition: 200ms;
-}
-.Questions-list img:hover {
-    transform: scale(1.2);
-}
-.Questions-list ul {
-    margin: 0  auto;
-    padding: 0;
-    width: 350px;
-}
-.Questions-checkBox {
-    display: flex;
-    justify-content: center;
-    width: 250px;
-    text-align: left;
-}
-
-
-.List-container {
-    margin-left: auto;
-    margin-right: auto;
-}
-.List {
-    height: 800px;
-    border-radius: 10px;
-    box-shadow: 4px 4px 20px 3px rgba(0, 0, 0, 0.08);
-    width: 70vw;
-    margin-top: 50px;
-}
-.List h1 {
-    font-size: 32px;
-    text-align: center;
-    padding-bottom: 40px;
-}
-.List li {
-    background-color: #549DF2;
-    list-style-type: none;
-    display: flex;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    margin-inline: 30px;
-    color: white;
-    font-size: 26px;
-    padding: 10px;
-    border-radius: 10px;
-    transition: ease 200ms;
-}
-.List li:hover {
-    background-color: rgb(70, 123, 214);
-}
-.List img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    transition: 200ms;
-}
-.List img:hover {
-    transform: scale(1.2);
-}
-.List ul {
-    margin: 0  auto;
-    padding: 0;
-    width: 100%;
-}
-.List-nav span {
-    font-size: 26px;
-    color: #B2B2B2;
-}
-.List-nav {
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: solid #c0c0c02f;
-    padding: 15px 40px 15px 40px;
-    margin-bottom: 30px;
-}
-.List li p {
-    font-size: 24px;
-    margin: 0;
-    width: 20vw;
-    padding-right: 50px;
-}
-.List-info {
-    margin-top: 40px;
-    justify-content: space-between;
-    display: flex;
-}
-.List-info h1 {
-    color: #B2B2B2;
-    margin: 0;
-    font-weight: 300;
-}
-.List-info h1 span {
-    color: #549DF2;
-    font-weight: 600;
-}
-.List-pages {
-    display: flex;
-}
-.List-pages h1 {
-    margin-inline: 5px;
-    font-weight: 500;
-    font-size: 26px;
-    text-align: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-    color: #868686;
-    background-color: #E6E6E6;
-    transition: ease 100ms;
-}
-.List-pages h1:hover {
-    cursor: pointer;
-    color: white;
-    background-color: #549DF2;
-    transform: scale(1.1);
-}
-#current-page {
-    cursor: pointer;
-    color: white;
-    background-color: #549DF2;
-}
-
 .Error-block {
     margin-top: 20px;
     text-align: center;
@@ -324,7 +76,7 @@ body {
 
 .List-Error-block {
     margin-top: 80px;
-    width: 50vw;
+    width: 40vw;
     height: 700px;
     box-shadow: 4px 4px 20px 3px rgba(0, 0, 0, 0.08);
     text-align: center;
@@ -332,11 +84,36 @@ body {
 .List-Error-block img {
     width: 200px;
     height: 200px;
+    transition: ease 500ms;
+}
+.List-Error-block img:hover {
+    transform: rotate(15deg);
 }
 .List-Error-block h2 {
+    font-weight: 500;
+    font-size: 28px;
     margin-top: 50px;
 }
-
-.test {
+.List-Error-block h1 {
+    font-weight: 500;
+    padding-top: 30px;
+    transition: ease 300ms;
+}
+.List-Error-block button:hover {
+    background-color: rgb(70, 123, 214);
+}
+.List-Error-block button  {
+    color: white;
+    border-radius: 10px;
+    border: none;
+    background-color: #549DF2;
+    font-size: 32px;
+    justify-content: center;
     margin: 0 auto;
+    width: 250px;
+    padding: 5px;
+    font-family: Outfit;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: ease 200ms;
 }
