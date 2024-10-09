@@ -14,31 +14,6 @@ let localQuestions = JSON.parse(localStorage.getItem("localQuestions"))
 let localCompletedTests = JSON.parse(localStorage.getItem("CompletedTimes"))
 let localTimeArray = JSON.parse(localStorage.getItem("TestTimers"))
 
-// LocalWork
-/* if (localQuestions){
-    questions = localQuestions
-    Render()
-}
-if (completedUI) {
-    lengthUI.innerHTML = Questions.length-1
-    completedUI.innerHTML = Completed
-}
-if (Questions.length == 1) {
-    CompletedTimes = "0"
-    TestTimers = []
-    localStorage.setItem('CompletedTimes', JSON.stringify(Completed))
-    localStorage.setItem('TestTimers', JSON.stringify(TestTimers))
-
-    ListBlockUI.innerHTML = `
-        <div class="Error-block">
-            <h1>Oops...</h1>
-            <img src="static/imgs/Error-icon.png" alt="Error-icon">
-            <h2>You Don't have any Questions yet</h2>
-        </div>
-    `
-} */
-//
-
 if (localQuestions) {
     questions = localQuestions
 }
@@ -80,25 +55,24 @@ function Render() {
                 </button>
             </li>`
         })
-    // Check if there are some Questions or not
+
     if (questions.length == 0) {
-            Completed = 0
-            questionsUI.innerHTML = `
-                <div class="Error-block">
-                    <h1>Oops...</h1>
-                    <img src="static/imgs/Error-icon.png" alt="Error-icon">
-                    <h2>You Don't have any Questions yet</h2>
-                </div>
-            `
+        Completed = 0
+        questionsUI.innerHTML = `
+            <div class="Error-block">
+                <h1>Oops...</h1>
+                <img src="static/imgs/Error-icon.png" alt="Error-icon">
+                <h2>You Don't have any Questions yet</h2>
+            </div>`
     }
     else {  
         questionsUI.innerHTML = `
         <h1>List of Questions</h1>
-        <ul id="listQue"></ul>
-        `
+        <ul id="listQue"></ul>`
+
         document.querySelector("#listQue").innerHTML = list
     }
-        
+          
     questionsLengthUI.innerHTML = questions.length
         
     let allDeleteButtons = document.querySelectorAll("#deleteButton")

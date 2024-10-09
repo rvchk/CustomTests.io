@@ -1,21 +1,22 @@
 const fullListUI = document.querySelector("#FullList")
 let FullList = ""
 
+function NoQuestions() {
+    document.querySelector(".List-container").innerHTML = `
+    <div class="List-Error-block">
+        <h1>Oops...</h1>
+        <img src="static/imgs/Error-icon.png" alt="Error-icon">
+        <h2>You Don't have any Questions yet</h2>
+        <h2 style="margin-top: 70px; margin-bottom: 30px;">Go and create one</h2>
+        <a href="index.html">
+            <button>Create</button>
+        </a>
+    </div>`
+}
+
 function Render() {
-    if (questions.length == 0) {
-        document.querySelector(".List-container").innerHTML = `
-        <div class="List-Error-block">
-            <h1>Oops...</h1>
-            <img src="static/imgs/Error-icon.png" alt="Error-icon">
-            <h2>You Don't have any Questions yet</h2>
-            <h2 style="margin-top: 70px; margin-bottom: 30px;">Go and create one</h2>
-            <a href="index.html">
-                <button>Create</button>
-            </a>
-        </div>
-        `
-    }
-    
+    if(questions.length==0) NoQuestions()
+
     questions.map((x) => {
         FullList += `
         <li>
