@@ -1,12 +1,7 @@
-let fullListUI = document.querySelector("#FullList")
+const fullListUI = document.querySelector("#FullList")
 let FullList = ""
 
 function Render() {
-    let allDeleteButtonss = document.querySelectorAll("#deleteButton")
-    allDeleteButtonss.forEach(deleteButton => deleteButton.addEventListener("click", DeleteQuestionList)) 
-}
-
-function RenderUI() {
     if (questions.length == 0) {
         document.querySelector(".List-container").innerHTML = `
         <div class="List-Error-block">
@@ -23,29 +18,28 @@ function RenderUI() {
     
     questions.map((x) => {
         FullList += `
-            <li>
-                <p>${x.Question}</p>
-                <p>${x.Answer}</p>
-                <p>${x.Type}</p>
-                <p>${x.Date}</p>
-                <button id="deleteButton" style="background-color: transparent; border: none;">
-                    <img src="static/imgs/Icons/Delete-icon.png" alt="">
-                </button>
-            </li>`
+        <li>
+            <p>${x.Question}</p>
+            <p>${x.Answer}</p>
+            <p>${x.Type}</p>
+            <p>${x.Date}</p>
+            <button id="deleteButton" style="background-color: transparent; border: none;">
+                <img src="static/imgs/Icons/Delete-icon.png" alt="">
+            </button>
+        </li>`
     })
     fullListUI.innerHTML = FullList
     FullList = ""
-    Render()
-}
 
-RenderUI()
+    let allDeleteButtons = document.querySelectorAll("#deleteButton")
+    allDeleteButtons.forEach(deleteButton => deleteButton.addEventListener("click", DeleteQuestionList))
+}
 
 function DeleteQuestionList() {
     let index = questions.map((x)=> `${x.Question}\n\n${x.Answer}\n\n${x.Type}\n\n${x.Date}`).indexOf(this.closest("li").innerText)
-
     questions.splice(index, 1)
-    console.log(questions)
+
     localStorage.setItem('localQuestions', JSON.stringify(questions))
-    RenderUI()
+    Render()
 }
-Render()
+Render() 
