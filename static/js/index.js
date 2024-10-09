@@ -1,22 +1,22 @@
 // Get All Necessary Definitions
-let Questions = [""]
-let questionInput = document.querySelector("#que")
-let answerInput = document.querySelector("#ans")
-let create = document.querySelector("#create")
-let lengthUI = document.querySelector("#length-UI")
-let local = JSON.parse(localStorage.getItem("Questions"))
-let completedUI = document.querySelector("#completed-UI")
-let Completed = JSON.parse(localStorage.getItem("CompletedTimes"))
-let avgTimeArray = JSON.parse(localStorage.getItem("TestTimers"))
-let avgTimeUI = document.querySelector("#avgTime")
-let TimeArray = localStorage.getItem('TestTimers');
-let CheckBox = document.querySelector("#ButtonsCheck")
-const ListBlockUI = document.querySelector(".Questions-list")
-//
+let questions = []
+
+const questionInput = document.querySelector("#que")
+const answerInput = document.querySelector("#ans")
+const createButton = document.querySelector("#create")
+const questionsLengthUI = document.querySelector("#length-UI")
+const completedTestsUI = document.querySelector("#completed-UI")
+const timeArrayUI = document.querySelector("#avgTime")
+const checkBoxUI = document.querySelector("#ButtonsCheck")
+const questionsUI = document.querySelector(".Questions-list")
+
+let localQuestions = JSON.parse(localStorage.getItem("localQuestions"))
+let localCompletedTests = JSON.parse(localStorage.getItem("CompletedTimes"))
+let localTimeArray = JSON.parse(localStorage.getItem("TestTimers"))
 
 // LocalWork
-if (local){
-    Questions = local
+/* if (localQuestions){
+    questions = localQuestions
     Render()
 }
 if (completedUI) {
@@ -36,15 +36,89 @@ if (Questions.length == 1) {
             <h2>You Don't have any Questions yet</h2>
         </div>
     `
-}
+} */
 //
 
+if (localQuestions) {
+    questions = localQuestions
+}
 
-// Create Definition
-create.addEventListener("click", () => {
+function CurrentDate() {
+    let date = new Date()
+    return `${String(date).split(" ").slice(1,4).join("/")}`
+}
+
+function CreateQuestion() {
+    if (questionInput.value && answerInput.value) {
+
+        questions.push(
+            {
+                Question: questionInput.value,
+                Answer: answerInput.value,
+                Type: checkBoxUI.checked ? "Button" : "Text",
+                Date: CurrentDate()
+            }
+        )
+        
+        questionInput.value = ""
+        answerInput.value = ""
+
+        localStorage.setItem('localQuestions', JSON.stringify(questions))
+        Render()
+    }
+}
+
+function Render() {
+    let list = ""
+
+    questions.map((x) => {
+        list += `
+            <li>
+                ${x.Question} ==> ${x.Answer}
+                <button id="deleteButton" style="background-color: transparent; border: none;">
+                    <img src="static/imgs/Icons/Delete-icon.png" alt="">
+                </button>
+            </li>`
+        })
+    // Check if there are some Questions or not
+    if (questions.length == 0) {
+            Completed = 0
+            questionsUI.innerHTML = `
+                <div class="Error-block">
+                    <h1>Oops...</h1>
+                    <img src="static/imgs/Error-icon.png" alt="Error-icon">
+                    <h2>You Don't have any Questions yet</h2>
+                </div>
+            `
+    }
+    else {  
+        questionsUI.innerHTML = `
+        <h1>List of Questions</h1>
+        <ul id="listQue"></ul>
+        `
+        document.querySelector("#listQue").innerHTML = list
+    }
+        
+    questionsLengthUI.innerHTML = questions.length
+        
+    let allDeleteButtons = document.querySelectorAll("#deleteButton")
+    allDeleteButtons.forEach(deleteButton => deleteButton.addEventListener("click", DeleteQuestion)) 
+}
+
+function DeleteQuestion() {
+    let index = questions.map((x)=> `${x.Question} ==> ${x.Answer}`).indexOf(this.closest("li").innerText)
+    questions.splice(index, 1)
+
+    localStorage.setItem('localQuestions', JSON.stringify(questions))
+    Render()
+}
+
+createButton.addEventListener("click", CreateQuestion)
+
+/* create.addEventListener("click", () => {
     // Check || If All Fields are Empty
     if (questionInput.value === "" || answerInput.value === ""){
-        Render()
+        return
     }
     else {
         const date = new Date()
@@ -67,11 +141,11 @@ create.addEventListener("click", () => {
         Render()
         renderTest()
     }
-})
+}) */
 //
 
 // This Fucntion Shows all Changes on the Page
-function Render() {
+/* function Render() {
     if (Questions.length > 1) {
         ListBlockUI.innerHTML = `
             <h1>List of Questions</h1>
@@ -107,11 +181,11 @@ function Render() {
 
     localStorage.setItem('CompletedTimes', JSON.stringify(Completed))
     localStorage.setItem('TestTimers', JSON.stringify(TimeArray))
-}
+} */
 //
 
 // Delete Item Button
-function deleteItem() {
+/* function deleteItem() {
     let index = Questions.indexOf(this.closest("li").innerText.split(" ").slice(0,3).join(" "))
     Questions.splice(index, 1)
     this.closest("li").remove()
@@ -128,4 +202,5 @@ function deleteItem() {
         `
     }
     Render()
-}
+} */
+

@@ -1,8 +1,14 @@
 let fullListUI = document.querySelector("#FullList")
 let FullList = ""
 
-if (Questions.length == 1) {
-    document.querySelector(".List-container").innerHTML = `
+function Render() {
+    let allDeleteButtonss = document.querySelectorAll("#deleteButton")
+    allDeleteButtonss.forEach(deleteButton => deleteButton.addEventListener("click", DeleteQuestionList)) 
+}
+
+function RenderUI() {
+    if (questions.length == 0) {
+        document.querySelector(".List-container").innerHTML = `
         <div class="List-Error-block">
             <h1>Oops...</h1>
             <img src="static/imgs/Error-icon.png" alt="Error-icon">
@@ -12,25 +18,34 @@ if (Questions.length == 1) {
                 <button>Create</button>
             </a>
         </div>
-    `
-}
-
-Questions.map((question)=> {
-    let arrowIndex = question.split(" ").indexOf("==>")
-    const que = question.split(" ")
-    if (question !== "") {
+        `
+    }
+    
+    questions.map((x) => {
         FullList += `
-        <li>
-        <p>${que.slice(0, arrowIndex).join(" ")}</p>
-        <p>${que.slice(arrowIndex+1, que.length).slice(0, -2).join(" ")}</p>
-        <p>${que.slice(-1 * 2)[0]}</p>
-        <p>${que.slice(-1)}</p>
-        <button id="delbtn" style="background-color: transparent; border: none;">
-            <img src="static/imgs/Icons/Delete-icon.png" alt="">
-        </button>
-    </li>`
+            <li>
+                <p>${x.Question}</p>
+                <p>${x.Answer}</p>
+                <p>${x.Type}</p>
+                <p>${x.Date}</p>
+                <button id="deleteButton" style="background-color: transparent; border: none;">
+                    <img src="static/imgs/Icons/Delete-icon.png" alt="">
+                </button>
+            </li>`
+    })
+    fullListUI.innerHTML = FullList
+    FullList = ""
+    Render()
 }
-})
 
-lengthUI.innerHTML = Questions.length-1
-fullListUI.innerHTML = FullList
+RenderUI()
+
+function DeleteQuestionList() {
+    let index = questions.map((x)=> `${x.Question}\n\n${x.Answer}\n\n${x.Type}\n\n${x.Date}`).indexOf(this.closest("li").innerText)
+
+    questions.splice(index, 1)
+    console.log(questions)
+    localStorage.setItem('localQuestions', JSON.stringify(questions))
+    RenderUI()
+}
+Render()
