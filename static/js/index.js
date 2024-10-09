@@ -22,10 +22,8 @@ if (local){
 if (completedUI) {
     lengthUI.innerHTML = Questions.length-1
     completedUI.innerHTML = Completed
-    TimeArray == "[]" ? avgTimeUI.innerHTML = 0: avgTimeUI.innerHTML = Math.round(avgTimeArray.reduce((x,y)=> x+y) / avgTimeArray.length)
 }
 if (Questions.length == 1) {
-    avgTimeArray = []
     CompletedTimes = "0"
     TestTimers = []
     localStorage.setItem('CompletedTimes', JSON.stringify(Completed))
@@ -101,7 +99,6 @@ function Render() {
     })
 
     completedUI.innerHTML = Completed
-    avgTimeArray == "[]" ? avgTimeUI.innerHTML = 0: avgTimeUI.innerHTML = Math.round(avgTimeArray.reduce((x,y)=> x+y) / avgTimeArray.length)
 
     // Shows the list on WebPage
     document.querySelector("#listQue").innerHTML = list

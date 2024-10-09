@@ -17,6 +17,20 @@ if(localCompleted)  {
     TestTimers = localTimer
 }
 
+if (Questions.length == 1) {
+    document.querySelector(".test").innerHTML = `
+        <div class="List-Error-block">
+            <h1>Oops...</h1>
+            <img src="static/imgs/Error-icon.png" alt="Error-icon">
+            <h2>You Don't have any Questions yet</h2>
+            <h2 style="margin-top: 70px; margin-bottom: 30px;">Go and create one</h2>
+            <a href="index.html">
+                <button>Create</button>
+            </a>
+        </div>
+    `
+}
+
 renderTest = () => {
     test.innerHTML = `TEST ${testInd}/${QueLength}`
     if (Questions.length == 0){

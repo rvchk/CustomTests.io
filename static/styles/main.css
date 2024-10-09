@@ -108,7 +108,9 @@ body {
     font-size: 16px;
     margin-bottom: 10px;
 }
-.Questions-create button, .Questions-test button  {
+.Questions-create button,
+.Questions-test button,
+.List-Error-block button  {
     color: white;
     border-radius: 10px;
     border: none;
@@ -166,7 +168,9 @@ body {
     border-radius: 10px;
     transition: ease 200ms;
 }
-.Questions-list li:hover, .Questions-column button:hover {
+.Questions-list li:hover,
+.Questions-column button:hover,
+.List-Error-block button:hover {
     background-color: rgb(70, 123, 214);
 }
 .Questions-list img {
@@ -301,7 +305,7 @@ body {
     text-align: center;
     font-family: Outfit;
 }
-.Error-block h1 {
+.Error-block h1, .List-Error-block h1 {
     color: #549DF2;
     font-size: 60px;
 }
@@ -316,4 +320,23 @@ body {
 }
 .Error-block h2 {
     font-size: 24px;
+}
+
+.List-Error-block {
+    margin-top: 80px;
+    width: 50vw;
+    height: 700px;
+    box-shadow: 4px 4px 20px 3px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+.List-Error-block img {
+    width: 200px;
+    height: 200px;
+}
+.List-Error-block h2 {
+    margin-top: 50px;
+}
+
+.test {
+    margin: 0 auto;
 }
