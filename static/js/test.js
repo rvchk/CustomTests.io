@@ -1,6 +1,9 @@
 let questionIndex = 0
 let rightAnswers = 0
 let questionsLength = questions.length
+let completedTimes = 0
+let timer = 0
+let testTimers = []
 
 const testContainer = document.querySelector(".Test")
 const questionNumber = document.querySelector("#Question-number")
@@ -8,7 +11,16 @@ const testQuestion = document.querySelector("#Test-Question")
 const testInput = document.querySelector("#Test-input")
 const testButton = document.querySelector("#Test-button")
 const questionNumberUI = document.querySelector(".Test-question")
+const testLengthUI = document.querySelector("#Questions-length")
+const TestTimerUI = document.querySelector("#TestTime-clock")
 
+let localCompleted = JSON.parse(localStorage.getItem("completedTimes"))
+let localTimers = JSON.parse(localStorage.getItem("testTimers"))
+
+if (localCompleted) {
+    testTimers = localTimers
+    completedTimes = localCompleted
+}
 
 function NoQuestions() {
     testContainer.innerHTML = `
@@ -24,44 +36,60 @@ function NoQuestions() {
     testContainer.style = "box-shadow: 0px 0px 0px 0px; margin-top: 0px; width: auto;"
 }
 
+function RenderUI(option) {
+    if (option) {
+        testQuestion.innerHTML = `Result is ${rightAnswers}/${questionsLength}`
+        testInput.style = "display: none;"
+        testButton.innerHTML = "Start"
+        questionNumberUI.style = "display: none;"
+    }
+    else {
+        testInput.style = "display: block;"
+        questionNumberUI.style = "display: flex;"
+    }
+}
+
 function Render() {
     if (questionsLength == 0) NoQuestions()
 
     questionNumber.innerHTML = `${questionIndex}/${questionsLength}`
-     if (questions.length == 0){
-        /* timer == null ? timer = 0: TestTimers.push(timer)
-        timer = 0
-        clearInterval(time)
-        time = setInterval(() => {
-            timer++
-        }, 1000); */
+    testLengthUI.innerHTML = questionsLength
 
-        questionNumberUI.style = "display: none;"
-        testQuestion.innerHTML = `Result is ${rightAnswers}/${questionsLength}`
-        testInput.style = "display: none;"
-        testButton.innerHTML = "START"
+    if (questions.length == 0){
+        testTimers.push(timer)
+        clearInterval(testTime)
+        TestTimerUI.innerHTML = 0
+
+        RenderUI(true)
+        completedTimes++
         questionIndex = 0
         rightAnswers = 0
         questions = localQuestions
-        /* CompletedTimes++
-        localStorage.setItem('CompletedTimes', JSON.stringify(CompletedTimes))
-        localStorage.setItem('TestTimers', JSON.stringify(TestTimers)) */
+        localStorage.setItem('completedTimes', JSON.stringify(completedTimes))
+        localStorage.setItem('testTimers', JSON.stringify(testTimers))
     }
 }
 
 function Test() {
-    testInput.style = "display: block;"
-    questionNumberUI.style = "display: flex;"
+    // Timer
+    if (testButton.innerHTML == "Start") {
+        timer = 55
+        testTime = setInterval(() => {
+            timer++
+            TestTimerUI.innerHTML = timer
+        }, 1000);
+    }
 
-    if (questions.length >= 1) {
-        testQuestion.innerHTML = questions[0].Question
+    RenderUI(false)
+
+    if (testInput.value == questions[0].Answer){
+        rightAnswers ++
     }
     if (testButton.innerHTML == "Answer") {
         questions = questions.slice(1)
     }
-
-    if (testInput.value == questions[0].Answer){
-        rightAnswers ++
+    if (questions.length >= 1) {
+        testQuestion.innerHTML = questions[0].Question
     }
     if (questionIndex < questionsLength){
         questionIndex ++
@@ -69,7 +97,7 @@ function Test() {
     
     testInput.value = ""
     testButton.innerHTML = "Answer"
-
+    
     Render()
 }
 

@@ -82,6 +82,9 @@
     margin: 5px 0 0 0 ;
     height: 50px;
 }
+.Test-info h1 span {
+    color: #549DF2;
+}
 .Test-info button, .Test-container button {
     color: white;
     border-radius: 10px;

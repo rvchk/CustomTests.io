@@ -13,6 +13,8 @@ const questionsUI = document.querySelector(".Questions-list")
 let localQuestions = JSON.parse(localStorage.getItem("localQuestions"))
 let localCompletedTests = JSON.parse(localStorage.getItem("CompletedTimes"))
 let localTimeArray = JSON.parse(localStorage.getItem("TestTimers"))
+let completed = JSON.parse(localStorage.getItem("completedTimes"))
+let timers = JSON.parse(localStorage.getItem("testTimers"))
 
 if (localQuestions) {
     questions = localQuestions
@@ -57,7 +59,9 @@ function Render() {
         })
 
     if (questions.length == 0) {
-        Completed = 0
+        completedTimes = 0
+        localStorage.setItem('completedTimes', JSON.stringify(completedTimes))
+
         questionsUI.innerHTML = `
             <div class="Error-block">
                 <h1>Oops...</h1>
@@ -74,6 +78,8 @@ function Render() {
     }
           
     questionsLengthUI.innerHTML = questions.length
+    completedTestsUI.innerHTML = completed
+    timeArrayUI.innerHTML = Math.round(timers.reduce((x,y)=>x+y)/timers.length)
         
     let allDeleteButtons = document.querySelectorAll("#deleteButton")
     allDeleteButtons.forEach(deleteButton => deleteButton.addEventListener("click", DeleteQuestion)) 
