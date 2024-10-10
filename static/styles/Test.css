@@ -34,12 +34,14 @@
     color: #549DF2;
     font-size: 36px;
     font-weight: 500;
+    margin-bottom: 80px;
 }
 .Test-container input {
+    display: none;
+
     padding-inline: 10px;
-    display: block;
     margin: 0 auto;
-    width: 90%;
+    width: 80%;
     height: 50px;
     font-size: 24px;
     border: solid #E3E3E3 1px;
@@ -49,7 +51,7 @@
     margin-top: 50px;
 }
 .Test-question {
-    display: flex;
+    display: none;
     justify-content: center;
     margin-bottom: 50px;
 }
