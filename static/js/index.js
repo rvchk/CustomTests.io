@@ -88,7 +88,7 @@ function DeleteQuestion() {
 }
 
 createButton.addEventListener("click", CreateQuestion)
-
+Render()
 /* create.addEventListener("click", () => {
     // Check || If All Fields are Empty
     if (questionInput.value === "" || answerInput.value === ""){

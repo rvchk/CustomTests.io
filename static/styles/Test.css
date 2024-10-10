@@ -1,3 +1,97 @@
-.test {
+.Test {
+    height: 800px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 20px 3px rgba(0, 0, 0, 0.08);
+    width: 60vw;
     margin: 0 auto;
+    margin-top: 50px;
+    position: relative;
+}
+.Test-NavBar {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid #c0c0c02f;
+    padding: 5px 20px 10px 20px;
+    margin-bottom: 30px;
+}
+.Test-NavBar span {
+    font-size: 32px;
+    font-weight: 500;
+    color: #549DF2;
+}
+
+.Test-container {
+    margin: 0 auto;
+    width: 40%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 20px 3px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    display: block;
+}
+.Test-container h1 {
+    color: #549DF2;
+    font-size: 36px;
+    font-weight: 500;
+}
+.Test-container input {
+    padding-inline: 10px;
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    height: 50px;
+    font-size: 24px;
+    border: solid #E3E3E3 1px;
+    border-radius: 10px;
+}
+.Test-container button {
+    margin-top: 50px;
+}
+.Test-question {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.Test-question p {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 0;
+    margin-right: 10px;
+}
+.Test-question span {
+    color: #549DF2;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.Test-info {
+    width: 95%;
+    padding-inline: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: absolute;
+    bottom: 0;
+}
+.Test-info h1 {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 5px 0 0 0 ;
+    height: 50px;
+}
+.Test-info button, .Test-container button {
+    color: white;
+    border-radius: 10px;
+    border: none;
+    background-color: #549DF2;
+    font-size: 32px;
+    justify-content: center;
+    width: 200px;
+    padding: 5px;
+    cursor: pointer;
+    transition: ease 200ms;
+}
+.Test-info button:hover {
+    background-color: rgb(70, 123, 214);
 }

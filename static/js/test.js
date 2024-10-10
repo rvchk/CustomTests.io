@@ -7,17 +7,18 @@ let CompletedTimes = 0
 let testInd = 0
 let RightAns = 0
 let TestTimers = []
-let QueLength = Questions.length-1
 let localTimer = JSON.parse(localStorage.getItem("TestTimers"))
 let localCompleted = JSON.parse(localStorage.getItem("CompletedTimes"))
 let time
 let timer
-if(localCompleted)  {
+let queLength = questions.length
+
+/* if (localCompleted)  {
     CompletedTimes = localCompleted
     TestTimers = localTimer
 }
 
-if (Questions.length == 1) {
+if (questions.length == 0) {
     document.querySelector(".test").innerHTML = `
         <div class="List-Error-block">
             <h1>Oops...</h1>
@@ -27,13 +28,12 @@ if (Questions.length == 1) {
             <a href="index.html">
                 <button>Create</button>
             </a>
-        </div>
-    `
+        </div>`
 }
 
 renderTest = () => {
-    test.innerHTML = `TEST ${testInd}/${QueLength}`
-    if (Questions.length == 0){
+    test.innerHTML = `TEST ${testInd}/${queLength}`
+    if (questions.length == 0){
         timer == null ? timer = 0: TestTimers.push(timer)
         timer = 0
         clearInterval(time)
@@ -41,8 +41,7 @@ renderTest = () => {
             timer++
         }, 1000);
 
-        Questions = local
-        testQue.innerHTML = `Result is ${RightAns}/${QueLength}`
+        testQue.innerHTML = `Result is ${RightAns}/${queLength}`
         testAns.style.display = "none"
         testBtn.innerHTML = "START"
         ansTheQue.innerHTML = ""
@@ -55,21 +54,23 @@ renderTest = () => {
 }
 
 testBtn.addEventListener("click", function(){
-    ansTheQue.innerHTML = "Answer the Question"
-    testAns.style.display = "block"
-    testBtn.innerHTML = "Answer"
-
-    if (testAns.value == Questions[0].split(" ")[2]){
+    
+    if (testAns.value == questions[0].Answer){
         console.log("Correct")
         RightAns += 1
     }
     testAns.value = ""
-    if (testInd < Questions.length){
-        testInd += 1
+    if (testInd < queLength){
+        testInd ++
     }
-    if (Questions.length > 1) {
-        testQue.innerHTML = Questions[1].split(" ").slice(0,2).join(" ")
+    if (testBtn.innerHTML == "Answer") {
+        questions = questions.slice(1)
     }
-    Questions = Questions.slice(1)
+    if (questions.length >= 1) {
+        testQue.innerHTML = questions[0].Question
+    }
+    ansTheQue.innerHTML = "Answer the Question"
+    testAns.style.display = "block"
+    testBtn.innerHTML = "Answer"
     renderTest()
-})
+}) */
