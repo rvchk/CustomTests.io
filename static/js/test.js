@@ -4,6 +4,7 @@ let questionsLength = questions.length
 let completedTimes = 0
 let timer = 0
 let testTimers = []
+let allAnswerButtons
 
 const testContainer = document.querySelector(".Test")
 const questionNumber = document.querySelector("#Question-number")
@@ -44,6 +45,17 @@ function AllToDefault() {
     questions = localQuestions
 }
 
+function ChooseAnswer() {
+    let clickedButton = this.closest("button")
+
+    allAnswerButtons.forEach((button)=>{
+        button.id = "AnswerOption"
+    })
+    testInput.value = clickedButton.innerText
+    clickedButton.id = "ChoosedAnswer"
+    console.log(testInput.value)
+}
+
 function RenderUI(option) {
     if (option) {
         testQuestion.innerHTML = `Result is ${rightAnswers}/${questionsLength}`
@@ -75,8 +87,11 @@ function Render() {
 }
 
 function Test() {
-    // Timer
+    RenderUI(false)
+    // Timer and Shuffle
     if (testButton.innerHTML == "Start") {
+        ShuffleArray(questions)
+
         timer = 0
         testTime = setInterval(() => {
             timer++
@@ -84,7 +99,20 @@ function Test() {
         }, 1000);
     }
 
-    RenderUI(false)
+    if (questions[0].Type == "Text") {
+        console.log("Text")
+    }
+    if (questions[0].Type == "Button") {
+        testInput.style = "display: none;"
+        document.querySelector(".Test-answerContainer").innerHTML = `
+            <button id="AnswerOption">${questions[Math.round(Math.random()*questions.length)].Answer}</button>
+            <button id="AnswerOption">${questions[0].Answer}</button>
+        `
+        console.log(questions);
+        
+        allAnswerButtons = document.querySelectorAll("#AnswerOption")
+        allAnswerButtons.forEach(AnswerOption => AnswerOption.addEventListener("click", ChooseAnswer)) 
+    }
 
     if (testInput.value == questions[0].Answer){
         rightAnswers ++
@@ -105,5 +133,8 @@ function Test() {
     Render()
 }
 
+function ShuffleArray(array) {
+    array = array.sort(() => Math.random() - 0.5)
+}
 testButton.addEventListener("click", Test)
 Render()

@@ -38,7 +38,6 @@
 }
 .Test-container input {
     display: none;
-
     padding-inline: 10px;
     margin: 0 auto;
     width: 80%;
@@ -99,4 +98,34 @@
 }
 .Test-info button:hover {
     background-color: rgb(70, 123, 214);
+}
+.Test-answerContainer {
+    display: flex;
+    justify-content: space-between;
+}
+#AnswerOption {
+    color: #868686;
+    border-radius: 10px;
+    border: none;
+    background-color: #E6E6E6;
+    font-size: 24px;
+    max-width: 150px;
+    padding: 5px;
+    cursor: pointer;
+    transition: ease 200ms;
+    margin-top: 0;
+}
+#AnswerOption:hover {
+    background-color: rgb(70, 123, 214);
+    color: white;
+}
+#ChoosedAnswer {
+    font-size: 24px;
+    background-color: #549DF2;
+    color: white;
+    max-width: 150px;
+    margin-top: 0;
+}
+.Test-answerChoosed {
+    background-color: black;
 }
