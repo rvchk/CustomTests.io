@@ -1,4 +1,5 @@
 const fullListUI = document.querySelector("#FullList")
+const listLengthUI = document.querySelector("#length-UI")
 let FullList = ""
 
 function NoQuestions() {
@@ -30,6 +31,7 @@ function Render() {
         </li>`
     })
     fullListUI.innerHTML = FullList
+    listLengthUI.innerHTML = questions.length
     FullList = ""
 
     let allDeleteButtons = document.querySelectorAll("#deleteButton")
