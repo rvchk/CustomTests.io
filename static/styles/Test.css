@@ -36,7 +36,7 @@
     font-weight: 500;
     margin-bottom: 80px;
 }
-.Test-container input {
+#Test-input {
     display: none;
     padding-inline: 10px;
     margin: 0 auto;

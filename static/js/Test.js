@@ -13,7 +13,8 @@ const testInput = document.querySelector("#Test-input")
 const testButton = document.querySelector("#Test-button")
 const questionNumberUI = document.querySelector(".Test-question")
 const testLengthUI = document.querySelector("#Questions-length")
-const TestTimerUI = document.querySelector("#TestTime-clock")
+const testTimerUI = document.querySelector("#TestTime-clock")
+const testAnswerContainer = document.querySelector(".Test-answerContainer")
 
 let localCompleted = JSON.parse(localStorage.getItem("completedTimes"))
 let localTimers = JSON.parse(localStorage.getItem("testTimers"))
@@ -39,7 +40,7 @@ function NoQuestions() {
 
 function AllToDefault() {
     clearInterval(testTime)
-    TestTimerUI.innerHTML = 0
+    testTimerUI.innerHTML = 0
     questionIndex = 0
     rightAnswers = 0
     questions = localQuestions
@@ -75,10 +76,10 @@ function Render() {
     testLengthUI.innerHTML = questionsLength
 
     if (questions.length == 0){
-        AllToDefault()
-        console.log("DOne")
-        testTimers.push(timer)
+        document.querySelector(".Test-answerContainer").style = "display: none;"
         RenderUI(true)
+        AllToDefault()
+        testTimers.push(timer)
         completedTimes++
         localStorage.setItem('completedTimes', JSON.stringify(completedTimes))
         localStorage.setItem('testTimers', JSON.stringify(testTimers))
@@ -98,12 +99,11 @@ function Test() {
         timer = 0
         testTime = setInterval(() => {
             timer++
-            TestTimerUI.innerHTML = timer
+            testTimerUI.innerHTML = timer
         }, 1000);
     }
 
     if (testInput.value == questions[0].Answer){
-        console.log("Correct");
         rightAnswers ++
     }
 
@@ -112,16 +112,29 @@ function Test() {
             questions = questions.slice(1)
         }
     }
+  
+    if (questions.length >= 1 && questions[0].Type == "Text") {
+        testAnswerContainer.style = "display: block;"
+        testAnswerContainer.innerHTML = `
+            <input id="Test-input" type="text">
+        `
+        document.querySelector("#Test-input").style = "display: block;"
+        console.log("TEXT")
+    }
 
     if (questions.length >= 1 && questions[0].Type == "Button"){
-        
         let randomAnswer = RandomAnswer().Answer
         testInput.style = "display: none;"
-        document.querySelector(".Test-answerContainer").innerHTML = `
-            <button id="AnswerOption">${randomAnswer}</button>
-            <button id="AnswerOption">${questions[0].Answer}</button>
+        testAnswerContainer.style = "display: flex;"
+        testAnswerContainer.innerHTML = `
+            <button id="AnswerOption">
+                ${randomAnswer}
+            </button>
+
+            <button id="AnswerOption">
+                ${questions[0].Answer}
+            </button>
         `
-        
         allAnswerButtons = document.querySelectorAll("#AnswerOption")
         allAnswerButtons.forEach(AnswerOption => AnswerOption.addEventListener("click", ChooseAnswer)) 
     }
@@ -136,7 +149,6 @@ function Test() {
 
     testInput.value = ""
     testButton.innerHTML = "Answer"
-    
     Render()
 }
 
