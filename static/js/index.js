@@ -61,10 +61,8 @@ function Render() {
         localTimeTests = []
         localStorage.setItem('testTimers', JSON.stringify(localTimeTests))
         localStorage.setItem('completedTimes', JSON.stringify(completed))
-
         completedTestsUI.innerHTML = completed
         timeArrayUI.innerHTML = 0
-
 
         questionsUI.innerHTML = `
             <div class="Error-block">

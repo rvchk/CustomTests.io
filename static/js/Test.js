@@ -53,7 +53,6 @@ function ChooseAnswer() {
     })
     testInput.value = clickedButton.innerText
     clickedButton.id = "ChoosedAnswer"
-    console.log(testInput.value)
 }
 
 function RenderUI(option) {
@@ -77,13 +76,17 @@ function Render() {
 
     if (questions.length == 0){
         AllToDefault()
-
+        console.log("DOne")
         testTimers.push(timer)
         RenderUI(true)
         completedTimes++
         localStorage.setItem('completedTimes', JSON.stringify(completedTimes))
         localStorage.setItem('testTimers', JSON.stringify(testTimers))
     }
+}
+
+function RandomAnswer() {
+    return questions[Math.ceil(Math.random()*questions.length-1)]
 }
 
 function Test() {
@@ -99,34 +102,38 @@ function Test() {
         }, 1000);
     }
 
-    if (questions[0].Type == "Text") {
-        console.log("Text")
+    if (testInput.value == questions[0].Answer){
+        console.log("Correct");
+        rightAnswers ++
     }
-    if (questions[0].Type == "Button") {
+
+    if (testButton.innerHTML == "Answer") {
+        if (questions.length !== 0) {
+            questions = questions.slice(1)
+        }
+    }
+
+    if (questions.length >= 1 && questions[0].Type == "Button"){
+        
+        let randomAnswer = RandomAnswer().Answer
         testInput.style = "display: none;"
         document.querySelector(".Test-answerContainer").innerHTML = `
-            <button id="AnswerOption">${questions[Math.round(Math.random()*questions.length)].Answer}</button>
+            <button id="AnswerOption">${randomAnswer}</button>
             <button id="AnswerOption">${questions[0].Answer}</button>
         `
-        console.log(questions);
         
         allAnswerButtons = document.querySelectorAll("#AnswerOption")
         allAnswerButtons.forEach(AnswerOption => AnswerOption.addEventListener("click", ChooseAnswer)) 
     }
 
-    if (testInput.value == questions[0].Answer){
-        rightAnswers ++
-    }
-    if (testButton.innerHTML == "Answer") {
-        questions = questions.slice(1)
-    }
     if (questions.length >= 1) {
         testQuestion.innerHTML = questions[0].Question
     }
+
     if (questionIndex < questionsLength){
         questionIndex ++
     }
-    
+
     testInput.value = ""
     testButton.innerHTML = "Answer"
     
@@ -136,5 +143,6 @@ function Test() {
 function ShuffleArray(array) {
     array = array.sort(() => Math.random() - 0.5)
 }
+
 testButton.addEventListener("click", Test)
 Render()
