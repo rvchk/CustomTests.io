@@ -91,6 +91,13 @@ function RandomAnswer() {
 }
 
 function Test() {
+    if (questions[0].Type == "Text" && document.querySelector("#Test-input").value == "") {
+        return
+    }
+    if (testButton.innerHTML == "Answer" && questions[0].Type == "Button" && testInput.value == "") {
+        return
+    }
+
     RenderUI(false)
     // Timer and Shuffle
     if (testButton.innerHTML == "Start") {
@@ -119,7 +126,6 @@ function Test() {
             <input id="Test-input" type="text">
         `
         document.querySelector("#Test-input").style = "display: block;"
-        console.log("TEXT")
     }
 
     if (questions.length >= 1 && questions[0].Type == "Button"){
@@ -136,7 +142,7 @@ function Test() {
             </button>
         `
         allAnswerButtons = document.querySelectorAll("#AnswerOption")
-        allAnswerButtons.forEach(AnswerOption => AnswerOption.addEventListener("click", ChooseAnswer)) 
+        allAnswerButtons.forEach(AnswerOption => AnswerOption.addEventListener("click", ChooseAnswer))
     }
 
     if (questions.length >= 1) {
