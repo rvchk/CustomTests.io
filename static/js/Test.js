@@ -91,10 +91,13 @@ function RandomAnswer() {
 }
 
 function Test() {
-    if (questions[0].Type == "Text" && document.querySelector("#Test-input").value == "") {
+    let testButtonAnswer = testButton.innerHTML == "Answer"
+    
+    if (testButtonAnswer && questions[0].Type == "Text" && document.querySelector("#Test-input").value == "") {
+        console.log("Lol")
         return
     }
-    if (testButton.innerHTML == "Answer" && questions[0].Type == "Button" && testInput.value == "") {
+    if (testButtonAnswer && questions[0].Type == "Button" && testInput.value == "") {
         return
     }
 
@@ -114,7 +117,7 @@ function Test() {
         rightAnswers ++
     }
 
-    if (testButton.innerHTML == "Answer") {
+    if (testButtonAnswer) {
         if (questions.length !== 0) {
             questions = questions.slice(1)
         }
