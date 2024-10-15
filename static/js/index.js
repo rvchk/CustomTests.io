@@ -24,6 +24,7 @@ function CurrentDate() {
 }
 
 function CreateQuestion() {
+    createButton.innerHTML = "Create"
     if (questionInput.value && answerInput.value) {
 
         questions.push(
@@ -66,9 +67,13 @@ function Render() {
                 list.push(`
                 <li>
                     ${x.Question} ==> ${x.Answer}
-                    <button id="deleteButton" style="background-color: transparent; border: none;">
-                        <img src="static/imgs/Icons/Delete-icon.png" alt="">
-                    </button>
+                    
+                        <button id="editButton" style="background-color: transparent; border: none;">
+                            <img src="static/imgs/Icons/Edit-icon.png" alt="">
+                        </button>
+                        <button id="deleteButton" style="background-color: transparent; border: none;">
+                            <img src="static/imgs/Icons/Delete-icon.png" alt="">
+                        </button>
                 </li>`
         )})
 
@@ -85,7 +90,10 @@ function Render() {
     timeArrayUI.innerHTML = localTimeTests.length ? Math.round(localTimeTests.reduce((x,y)=>x+y)/localTimeTests.length) : 0
         
     let allDeleteButtons = document.querySelectorAll("#deleteButton")
-    allDeleteButtons.forEach(deleteButton => deleteButton.addEventListener("click", DeleteQuestion)) 
+    allDeleteButtons.forEach(deleteButton => deleteButton.addEventListener("click", DeleteQuestion))
+    
+    let allEditButtons = document.querySelectorAll("#editButton")
+    allEditButtons.forEach(editButton => editButton.addEventListener("click", EditQuestion))  
 }
 
 function DeleteQuestion() {
@@ -95,5 +103,21 @@ function DeleteQuestion() {
     localStorage.setItem('localQuestions', JSON.stringify(questions))
     Render()
 }
+
+function EditQuestion() {
+    let currentQuestion = this.closest("li").innerText.split(" ")
+    let arrowIndex = currentQuestion.indexOf("==>")
+
+    questionInput.value = currentQuestion.slice(0, arrowIndex).join(" ")
+    answerInput.value = currentQuestion.slice(arrowIndex+1, currentQuestion.length).join(" ")
+    createButton.innerHTML = "Change"
+
+    let index = questions.map((x)=> `${x.Question} ==> ${x.Answer}`).indexOf(this.closest("li").innerText)
+    questions.splice(index, 1)
+
+    localStorage.setItem('localQuestions', JSON.stringify(questions))
+    Render()
+}
+
 createButton.addEventListener("click", CreateQuestion)
 Render()
