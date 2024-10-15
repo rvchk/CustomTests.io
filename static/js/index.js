@@ -7,7 +7,7 @@ const createButton = document.querySelector("#create")
 const questionsLengthUI = document.querySelector("#length-UI")
 const completedTestsUI = document.querySelector("#completed-UI")
 const timeArrayUI = document.querySelector("#avgTime")
-const checkBoxUI = document.querySelector("#ButtonsCheck")
+const questionTypeText = document.querySelector("#radioText")
 const questionsUI = document.querySelector(".Questions-list")
 
 let localQuestions = JSON.parse(localStorage.getItem("localQuestions"))
@@ -30,7 +30,7 @@ function CreateQuestion() {
             {
                 Question: questionInput.value,
                 Answer: answerInput.value,
-                Type: checkBoxUI.checked ? "Button" : "Text",
+                Type: questionTypeText.checked ? "Text" : "Button",
                 Date: CurrentDate()
             }
         )
@@ -40,6 +40,7 @@ function CreateQuestion() {
 
         localStorage.setItem('localQuestions', JSON.stringify(questions))
         Render()
+        console.log(questions)
     }
 }
 
@@ -59,7 +60,7 @@ function Render() {
                 <h2>You Don't have any Questions yet</h2>
             </div>`
     }
-    
+
     let list = []
         questions.map((x) => {
                 list.push(`
@@ -94,6 +95,5 @@ function DeleteQuestion() {
     localStorage.setItem('localQuestions', JSON.stringify(questions))
     Render()
 }
-
 createButton.addEventListener("click", CreateQuestion)
 Render()

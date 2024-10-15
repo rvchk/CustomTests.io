@@ -34,7 +34,7 @@
 }
 .Questions-create h1 {
     padding-top: 15px;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
     text-align: center;
     font-size: 32px;
 }
@@ -134,7 +134,8 @@
 }
 .Questions-checkBox {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 250px;
-    text-align: left;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
