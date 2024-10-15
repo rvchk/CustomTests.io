@@ -44,18 +44,6 @@ function CreateQuestion() {
 }
 
 function Render() {
-    let list = ""
-
-    questions.map((x) => {
-        list += `
-            <li>
-                ${x.Question} ==> ${x.Answer}
-                <button id="deleteButton" style="background-color: transparent; border: none;">
-                    <img src="static/imgs/Icons/Delete-icon.png" alt="">
-                </button>
-            </li>`
-        })
-
     if (questions.length == 0) {
         completed = 0
         localTimeTests = []
@@ -71,17 +59,29 @@ function Render() {
                 <h2>You Don't have any Questions yet</h2>
             </div>`
     }
-    else {  
+    
+    let list = []
+        questions.map((x) => {
+                list.push(`
+                <li>
+                    ${x.Question} ==> ${x.Answer}
+                    <button id="deleteButton" style="background-color: transparent; border: none;">
+                        <img src="static/imgs/Icons/Delete-icon.png" alt="">
+                    </button>
+                </li>`
+        )})
+
+    if (questions.length > 0) {  
         questionsUI.innerHTML = `
         <h1>List of Questions</h1>
         <ul id="listQue"></ul>`
 
-        document.querySelector("#listQue").innerHTML = list
+        document.querySelector("#listQue").innerHTML = list.slice(0,8).join("")
     }
           
     questionsLengthUI.innerHTML = questions.length
     completedTestsUI.innerHTML = completed
-    timeArrayUI.innerHTML = localTimeTests ? Math.round(localTimeTests.reduce((x,y)=>x+y)/localTimeTests.length): 0
+    timeArrayUI.innerHTML = localTimeTests.length ? Math.round(localTimeTests.reduce((x,y)=>x+y)/localTimeTests.length) : 0
         
     let allDeleteButtons = document.querySelectorAll("#deleteButton")
     allDeleteButtons.forEach(deleteButton => deleteButton.addEventListener("click", DeleteQuestion)) 
