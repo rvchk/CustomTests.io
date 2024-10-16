@@ -67,13 +67,14 @@ function Render() {
                 list.push(`
                 <li>
                     ${x.Question} ==> ${x.Answer}
-                    
+                        <div>
                         <button id="editButton" style="background-color: transparent; border: none;">
                             <img src="static/imgs/Icons/Edit-icon.png" alt="">
                         </button>
                         <button id="deleteButton" style="background-color: transparent; border: none;">
                             <img src="static/imgs/Icons/Delete-icon.png" alt="">
                         </button>
+                        </div>
                 </li>`
         )})
 
@@ -97,9 +98,12 @@ function Render() {
 }
 
 function DeleteQuestion() {
-    let index = questions.map((x)=> `${x.Question} ==> ${x.Answer}`).indexOf(this.closest("li").innerText)
-    questions.splice(index, 1)
+    let index = questions.map(
+        x => `${x.Question.replace(/\s/g, "")}==>${x.Answer.replace(/\s/g, "")}`)
+        .indexOf(this.closest("li").innerText.replace(/\s/g, "")
+    )
 
+    questions.splice(index, 1)
     localStorage.setItem('localQuestions', JSON.stringify(questions))
     Render()
 }
@@ -112,10 +116,13 @@ function EditQuestion() {
     answerInput.value = currentQuestion.slice(arrowIndex+1, currentQuestion.length).join(" ")
     createButton.innerHTML = "Change"
 
-    let index = questions.map((x)=> `${x.Question} ==> ${x.Answer}`).indexOf(this.closest("li").innerText)
+    let index = questions.map(
+        x => `${x.Question.replace(/\s/g, "")}==>${x.Answer.replace(/\s/g, "")}`)
+        .indexOf(this.closest("li").innerText.replace(/\s/g, "")
+    )
     questions.splice(index, 1)
-
     localStorage.setItem('localQuestions', JSON.stringify(questions))
+    
     Render()
 }
 
