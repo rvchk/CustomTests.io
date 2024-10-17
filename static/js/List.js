@@ -1,6 +1,8 @@
 const fullListUI = document.querySelector("#FullList")
 const listLengthUI = document.querySelector("#length-UI")
+
 let FullList = ""
+let editList = []
 
 function NoQuestions() {
     document.querySelector(".List-container").innerHTML = `
@@ -21,10 +23,14 @@ function Render() {
     questions.map((x) => {
         FullList += `
         <li>
-            <p>${x.Question}</p>
-            <p>${x.Answer}</p>
-            <p>${x.Type}</p>
+            <p id="Question-form">${x.Question}</p>
+            <p id="Answer-form">${x.Answer}</p>
+            <p id="Type-form">${x.Type}</p>
             <p>${x.Date}</p>
+
+            <button id="editButton" style="background-color: transparent; border: none;">
+                <img src="static/imgs/Icons/Edit-icon.png" alt="">
+            </button>
             <button id="deleteButton" style="background-color: transparent; border: none;">
                 <img src="static/imgs/Icons/Delete-icon.png" alt="">
             </button>
@@ -36,6 +42,9 @@ function Render() {
 
     let allDeleteButtons = document.querySelectorAll("#deleteButton")
     allDeleteButtons.forEach(deleteButton => deleteButton.addEventListener("click", DeleteQuestionList))
+
+    let allEditButtons = document.querySelectorAll("#editButton")
+    allEditButtons.forEach(editButton => editButton.addEventListener("click", EditQuestionList))  
 }
 
 function DeleteQuestionList() {
@@ -45,4 +54,17 @@ function DeleteQuestionList() {
     localStorage.setItem('localQuestions', JSON.stringify(questions))
     Render()
 }
+
+function EditQuestionList() {
+    let question = this.closest("li").innerText.replace(/\s/g, " ").split(" ")
+
+    let questionForm = this.closest("li").querySelector("#Question-form")
+    let answerForm = this.closest("li").querySelector("#Answer-form")
+    let typeForm = this.closest("li").querySelector("#Type-form")
+    
+    questionForm.innerHTML = `<input value=${question[0]}></input>`
+
+    editList.push(question[0], question[2])
+}
+
 Render() 

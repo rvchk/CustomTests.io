@@ -68,12 +68,12 @@ function Render() {
                 <li>
                     ${x.Question} ==> ${x.Answer}
                         <div>
-                        <button id="editButton" style="background-color: transparent; border: none;">
-                            <img src="static/imgs/Icons/Edit-icon.png" alt="">
-                        </button>
-                        <button id="deleteButton" style="background-color: transparent; border: none;">
-                            <img src="static/imgs/Icons/Delete-icon.png" alt="">
-                        </button>
+                            <button id="editButton" style="background-color: transparent; border: none;">
+                                <img src="static/imgs/Icons/Edit-icon.png" alt="">
+                            </button>
+                            <button id="deleteButton" style="background-color: transparent; border: none;">
+                                <img src="static/imgs/Icons/Delete-icon.png" alt="">
+                            </button>
                         </div>
                 </li>`
         )})
