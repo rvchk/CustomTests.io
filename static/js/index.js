@@ -26,11 +26,11 @@ function CurrentDate() {
 function CreateQuestion() {
     createButton.innerHTML = "Create"
     if (questionInput.value && answerInput.value) {
-
         questions.push(
             {
-                Question: questionInput.value,
-                Answer: answerInput.value,
+                // .replace -- removes excess spaces
+                Question: questionInput.value.replace(/\s/g, ""),
+                Answer: answerInput.value.replace(/\s/g, ""),
                 Type: questionTypeText.checked ? "Text" : "Button",
                 Date: CurrentDate()
             }
@@ -41,8 +41,8 @@ function CreateQuestion() {
 
         localStorage.setItem('localQuestions', JSON.stringify(questions))
         Render()
-        console.log(questions)
     }
+    console.log(questions)
 }
 
 function Render() {
@@ -98,8 +98,7 @@ function Render() {
 }
 
 function DeleteQuestion() {
-    let index = questions.map(
-        x => `${x.Question.replace(/\s/g, "")}==>${x.Answer.replace(/\s/g, "")}`)
+    let index = questions.map(x => `${x.Question}==>${x.Answer}`)
         .indexOf(this.closest("li").innerText.replace(/\s/g, "")
     )
 
@@ -116,13 +115,11 @@ function EditQuestion() {
     answerInput.value = currentQuestion.slice(arrowIndex+1, currentQuestion.length).join(" ")
     createButton.innerHTML = "Change"
 
-    let index = questions.map(
-        x => `${x.Question.replace(/\s/g, "")}==>${x.Answer.replace(/\s/g, "")}`)
-        .indexOf(this.closest("li").innerText.replace(/\s/g, "")
-    )
+    let index = questions.map(x => `${x.Question}==>${x.Answer}`)
+        .indexOf(this.closest("li").innerText.replace(/\s/g, ""))
+
     questions.splice(index, 1)
     localStorage.setItem('localQuestions', JSON.stringify(questions))
-    
     Render()
 }
 

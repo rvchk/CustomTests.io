@@ -113,7 +113,10 @@ function Test() {
         }, 1000);
     }
 
-    if (testInput.value == questions[0].Answer){
+    if (questions[0].Type == "Text" && document.querySelector("#Test-input").value == questions[0].Answer){
+        rightAnswers ++
+    }
+    if (testInput.value == questions[0].Answer && questions[0].Type == "Button") {
         rightAnswers ++
     }
 
