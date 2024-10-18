@@ -1,15 +1,12 @@
-# This is a Custom Tests for your cases
-# I hope You will LOVE This WebSite
-# There is URL
-# ↓
-# https://k0m11.github.io/CustomTests.io/
-
-![image](https://github.com/user-attachments/assets/053c53c3-dde2-4f45-a333-e03101084704)
-
-
-Figma Design
-
-# https://www.figma.com/design/ZQgH2zGKmfqev8ENSkGvjP/Custom-Tests?node-id=0-1&node-type=canvas&t=q3Njqnl524IaRAwX-0
+<h1>Url to web-site<h1
+<h3>
+https://k0m11.github.io/CustomTests.io/
+</h3>
+<h1>
+  Figma Design
+</h1>
+<h3> https://www.figma.com/design/ZQgH2zGKmfqev8ENSkGvjP/Custom-Tests?node-id=0-1&node-type=canvas&t=q3Njqnl524IaRAwX-0
+</h3>
 
 <h1>Features to add</h1>
 <ul>
