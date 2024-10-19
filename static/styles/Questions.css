@@ -139,3 +139,10 @@
     margin: 0 auto;
     margin-bottom: 20px;
 }
+
+@media (max-width: 800px) {
+    .Questions {
+        display: block;
+        width: 100vw;
+    }
+}
