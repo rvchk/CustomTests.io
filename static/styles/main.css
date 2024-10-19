@@ -117,3 +117,28 @@ body {
     cursor: pointer;
     transition: ease 200ms;
 }
+
+@media (max-width: 800px) {
+    body {
+        display: block;
+    }
+    .SideBar {
+        height: 80px;
+        width: 100vw;
+        display: flex;
+        line-height: 80px
+    }
+    .SideBar-elements span {
+        display: flex;
+    }
+    .SideBar-logo {
+        font-size: 18px;
+        margin: 0px;
+    }
+    .SideBar-logo h1 {
+        margin: 0px;
+    }
+    .SideBar-elements {
+        display: none;
+    }
+}
