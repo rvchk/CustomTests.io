@@ -102,3 +102,9 @@
     color: white;
     background-color: #549DF2;
 }
+#acceptButton {
+    transition: ease 200ms;
+}
+#acceptButton:hover {
+    transform: scale(1.2);
+}
