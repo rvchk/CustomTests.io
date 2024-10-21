@@ -108,3 +108,15 @@
 #acceptButton:hover {
     transform: scale(1.2);
 }
+#FullList input {
+    width: 115px;
+    font-size: 24px;
+    border: solid 1px white;
+    border-radius: 5px;
+}
+#FullList select {
+    width: 100px;
+    font-size: 24px;
+    border: solid 1px white;
+    border-radius: 5px;
+}

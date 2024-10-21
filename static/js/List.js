@@ -56,20 +56,20 @@ function DeleteQuestionList() {
 }
 
 function EditQuestionList() {
-    if (!editing) {
-        editing = true
-        let question = this.closest("li").innerText.replace(/\s/g, " ").split(" ")
     
+    if (!editing) {
+        let question = this.closest("li").innerText.replace(/\s/g, " ").split(" ")
         let questionForm = this.closest("li").querySelector("#Question-form")
         let answerForm = this.closest("li").querySelector("#Answer-form")
         let typeForm = this.closest("li").querySelector("#Type-form")
+
+        editing = true
 
         this.closest("li").querySelector("#editButton").innerHTML = `
             <button id="acceptButton" style="background-color: transparent; border: none;">
                 <img src="static/imgs/Icons/Accept-icon1.png" alt="" style="transform: scale(1.3);">
             </button>
         `
-        
         questionForm.innerHTML = `
             <input value=${question[0]}></input>
         `
