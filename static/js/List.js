@@ -26,7 +26,7 @@ function Render() {
             <p id="Question-form">${x.Question}</p>
             <p id="Answer-form">${x.Answer}</p>
             <p id="Type-form">${x.Type}</p>
-            <p>${x.Date}</p>
+            <p id="CurrentDate">${x.Date}</p>
 
             <button id="editButton" style="background-color: transparent; border: none;">
                 <img src="static/imgs/Icons/Edit-icon.png" alt="">
@@ -42,7 +42,7 @@ function Render() {
 
     let allDeleteButtons = document.querySelectorAll("#deleteButton")
     allDeleteButtons.forEach(deleteButton => deleteButton.addEventListener("click", DeleteQuestionList))
-
+    
     let allEditButtons = document.querySelectorAll("#editButton")
     allEditButtons.forEach(editButton => editButton.addEventListener("click", EditQuestionList)) 
 }
@@ -56,32 +56,51 @@ function DeleteQuestionList() {
 }
 
 function EditQuestionList() {
-    
+    console.log("clicked")
+
+    let questionForm = this.closest("li").querySelector("#Question-form")
+    let answerForm = this.closest("li").querySelector("#Answer-form")
+    let typeForm = this.closest("li").querySelector("#Type-form")
+
+    if (editing) {
+        this.closest("li").innerHTML = `
+            <p id="Question-form">${this.closest("li").querySelector("#queInput").value}</p>
+            <p id="Answer-form">${this.closest("li").querySelector("#ansInput").value}</p>
+            <p id="Type-form">${this.closest("li").querySelector("#TypeSelect").value}</p>
+            <p id="CurrentDate">${this.closest("li").querySelector("#CurrentDate").innerText}</p>
+
+            <button id="editButton" style="background-color: transparent; border: none;">
+                <img src="static/imgs/Icons/Edit-icon.png" alt="">
+            </button>
+            <button id="deleteButton" style="background-color: transparent; border: none;">
+                <img src="static/imgs/Icons/Delete-icon.png" alt="">
+            </button>
+        `
+        editing = false
+        console.log(editing)
+    }
+
     if (!editing) {
-        let question = this.closest("li").innerText.replace(/\s/g, " ").split(" ")
-        let questionForm = this.closest("li").querySelector("#Question-form")
-        let answerForm = this.closest("li").querySelector("#Answer-form")
-        let typeForm = this.closest("li").querySelector("#Type-form")
-
-        editing = true
-
         this.closest("li").querySelector("#editButton").innerHTML = `
             <button id="acceptButton" style="background-color: transparent; border: none;">
                 <img src="static/imgs/Icons/Accept-icon1.png" alt="" style="transform: scale(1.3);">
             </button>
         `
         questionForm.innerHTML = `
-            <input value=${question[0]}></input>
+            <input id="queInput" value=${questionForm.innerText}></input>
         `
         answerForm.innerHTML = `
-            <input value=${question[2]}></input>
+            <input id="ansInput" value=${answerForm.innerText}></input>
         `
         typeForm.innerHTML = `
             <select id="TypeSelect">
-                <option>${question[4]}</option>
+                <option>${typeForm.innerText}</option>
                 <option>Button</option>
             </select>
         `
+
+        editing = true
+        console.log(editing)
     }
 }
 
