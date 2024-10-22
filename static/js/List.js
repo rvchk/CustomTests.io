@@ -3,6 +3,7 @@ const listLengthUI = document.querySelector("#length-UI")
 let editing = false
 
 let FullList = ""
+let index
 
 function NoQuestions() {
     document.querySelector(".List-container").innerHTML = `
@@ -55,37 +56,40 @@ function DeleteQuestionList() {
     Render()
 }
 
+function AcceptEdit() {
+
+    console.log("accepted")
+    if (editing) {
+        editing = false
+
+        questions.push({
+            // .replace -- removes excess spaces
+            Question: this.closest("li").querySelector("#queInput").value.replace(/\s/g, ""),
+            Answer: this.closest("li").querySelector("#ansInput").value.replace(/\s/g, ""),
+            Type: this.closest("li").querySelector("#TypeSelect").value,
+            Date: this.closest("li").querySelector("#CurrentDate").innerText
+        })
+        questions.splice(index, 1)
+        localStorage.setItem('localQuestions', JSON.stringify(questions))
+
+        Render()
+    }
+}
+
 function EditQuestionList() {
-    console.log("clicked")
 
     let questionForm = this.closest("li").querySelector("#Question-form")
     let answerForm = this.closest("li").querySelector("#Answer-form")
     let typeForm = this.closest("li").querySelector("#Type-form")
 
-    if (editing) {
-        this.closest("li").innerHTML = `
-            <p id="Question-form">${this.closest("li").querySelector("#queInput").value}</p>
-            <p id="Answer-form">${this.closest("li").querySelector("#ansInput").value}</p>
-            <p id="Type-form">${this.closest("li").querySelector("#TypeSelect").value}</p>
-            <p id="CurrentDate">${this.closest("li").querySelector("#CurrentDate").innerText}</p>
-
-            <button id="editButton" style="background-color: transparent; border: none;">
-                <img src="static/imgs/Icons/Edit-icon.png" alt="">
-            </button>
-            <button id="deleteButton" style="background-color: transparent; border: none;">
-                <img src="static/imgs/Icons/Delete-icon.png" alt="">
-            </button>
-        `
-        editing = false
-        console.log(editing)
-    }
-
     if (!editing) {
+        index = questions.map((x)=> `${x.Question}\n\n${x.Answer}\n\n${x.Type}\n\n${x.Date}`).indexOf(this.closest("li").innerText)
+
         this.closest("li").querySelector("#editButton").innerHTML = `
-            <button id="acceptButton" style="background-color: transparent; border: none;">
-                <img src="static/imgs/Icons/Accept-icon1.png" alt="" style="transform: scale(1.3);">
-            </button>
+            <img src="static/imgs/Icons/Accept-icon.png" alt="" style="transform: scale(1.3);">
         `
+        this.closest("li").querySelector("#editButton").id = "acceptButton"
+
         questionForm.innerHTML = `
             <input id="queInput" value=${questionForm.innerText}></input>
         `
@@ -95,13 +99,16 @@ function EditQuestionList() {
         typeForm.innerHTML = `
             <select id="TypeSelect">
                 <option>${typeForm.innerText}</option>
-                <option>Button</option>
+                <option>${typeForm.innerText == "Text" ? "Button" : "Text"}</option>
             </select>
         `
 
         editing = true
-        console.log(editing)
+        console.log("clicked")
     }
+    
+    let acceptButton = document.querySelector("#acceptButton")
+    acceptButton.addEventListener("click", AcceptEdit) 
 }
 
 Render() 
