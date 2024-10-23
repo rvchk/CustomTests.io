@@ -1,5 +1,6 @@
 const fullListUI = document.querySelector("#FullList")
 const listLengthUI = document.querySelector("#length-UI")
+const listPagesUI = document.querySelector(".List-pages")
 let editing = false
 
 let FullList = ""
@@ -46,6 +47,7 @@ function Render() {
     
     let allEditButtons = document.querySelectorAll("#editButton")
     allEditButtons.forEach(editButton => editButton.addEventListener("click", EditQuestionList)) 
+    ListPages()
 }
 
 function DeleteQuestionList() {
@@ -57,11 +59,8 @@ function DeleteQuestionList() {
 }
 
 function AcceptEdit() {
-
-    console.log("accepted")
     if (editing) {
         editing = false
-
         questions.push({
             // .replace -- removes excess spaces
             Question: this.closest("li").querySelector("#queInput").value.replace(/\s/g, ""),
@@ -109,6 +108,22 @@ function EditQuestionList() {
     
     let acceptButton = document.querySelector("#acceptButton")
     acceptButton.addEventListener("click", AcceptEdit) 
+}
+
+function ListPages() {
+    let length = questions.length
+    let pages = length % 10 == 0? 45/10: Math.floor(length/10)+1
+    let pagesUI = `<h1 id="current-page">1</h1>`
+    for (let i = 2; i<pages+1; i++) {
+        pagesUI += `<h1>${i}</h1>`
+    }
+    console.log(pagesUI)
+    listPagesUI.innerHTML = 
+    `
+        <h1><</h1>
+        ${pagesUI}
+        <h1>></h1>
+    `
 }
 
 Render() 
