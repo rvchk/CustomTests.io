@@ -118,7 +118,7 @@ function ChoosePage() {
 
 function ListPages() {
     let length = questions.length
-    let pages = length % 10 == 0? 45/10: Math.floor(length/10)+1
+    let pages = length % 10 == 0? length/10: Math.floor(length/10)+1
     let pagesUI = `<h1 id="current-page" class="page-number">1</h1>`
     for (let i = 2; i<pages+1; i++) {
         pagesUI += `<h1 class="page-number">${i}</h1>`
