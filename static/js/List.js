@@ -3,8 +3,8 @@ const listLengthUI = document.querySelector("#length-UI")
 const listPagesUI = document.querySelector(".List-pages")
 let editing = false
 
-let FullList = ""
-let index
+let FullList = []
+let currentPage = 1
 
 function NoQuestions() {
     document.querySelector(".List-container").innerHTML = `
@@ -20,10 +20,10 @@ function NoQuestions() {
 }
 
 function Render() {
-    if(questions.length==0) NoQuestions()
+    if (questions.length==0) NoQuestions()
 
     questions.map((x) => {
-        FullList += `
+        FullList.push (`
         <li>
             <p id="Question-form">${x.Question}</p>
             <p id="Answer-form">${x.Answer}</p>
@@ -36,18 +36,17 @@ function Render() {
             <button id="deleteButton" style="background-color: transparent; border: none;">
                 <img src="static/imgs/Icons/Delete-icon.png" alt="">
             </button>
-        </li>`
+        </li>`)
     })
-    fullListUI.innerHTML = FullList
+    fullListUI.innerHTML = FullList.slice(currentPage*10-10, currentPage*10).join("")
     listLengthUI.innerHTML = questions.length
-    FullList = ""
+    FullList = []
 
     let allDeleteButtons = document.querySelectorAll("#deleteButton")
     allDeleteButtons.forEach(deleteButton => deleteButton.addEventListener("click", DeleteQuestionList))
     
     let allEditButtons = document.querySelectorAll("#editButton")
     allEditButtons.forEach(editButton => editButton.addEventListener("click", EditQuestionList)) 
-    ListPages()
 }
 
 function DeleteQuestionList() {
@@ -110,20 +109,23 @@ function EditQuestionList() {
     acceptButton.addEventListener("click", AcceptEdit) 
 }
 
+function ChoosePage() {
+    document.querySelectorAll(".page-number").forEach(page => page.id = "")
+    this.id= "current-page"
+    currentPage = this.innerText
+    Render()
+}
+
 function ListPages() {
     let length = questions.length
     let pages = length % 10 == 0? 45/10: Math.floor(length/10)+1
-    let pagesUI = `<h1 id="current-page">1</h1>`
+    let pagesUI = `<h1 id="current-page" class="page-number">1</h1>`
     for (let i = 2; i<pages+1; i++) {
-        pagesUI += `<h1>${i}</h1>`
+        pagesUI += `<h1 class="page-number">${i}</h1>`
     }
-    console.log(pagesUI)
-    listPagesUI.innerHTML = 
-    `
-        <h1><</h1>
-        ${pagesUI}
-        <h1>></h1>
-    `
+    listPagesUI.innerHTML = pagesUI
+    document.querySelectorAll(".page-number").forEach(num => num.addEventListener("click", ChoosePage))
 }
 
-Render() 
+Render()
+ListPages()

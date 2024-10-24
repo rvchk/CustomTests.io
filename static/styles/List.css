@@ -91,16 +91,16 @@
     background-color: #E6E6E6;
     transition: ease 100ms;
 }
+#current-page {
+    cursor: pointer;
+    color: white;
+    background-color: #549DF2;
+}
 .List-pages h1:hover {
     cursor: pointer;
     color: white;
     background-color: #549DF2;
     transform: scale(1.1);
-}
-#current-page {
-    cursor: pointer;
-    color: white;
-    background-color: #549DF2;
 }
 #acceptButton {
     transition: ease 200ms;
