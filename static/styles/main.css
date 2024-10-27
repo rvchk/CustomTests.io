@@ -11,6 +11,30 @@ body {
     display: flex;
 }
 
+header {
+    display: none;
+    padding-inline: 20px;
+}
+.Header-elements {
+    padding-top: 10px;
+    height: 0px;
+    transition: background 0.45s;
+    border-radius: 0px 0px 10px 10px;
+}
+.Header-elements img {
+    margin-right: 15px;
+    vertical-align: center;
+    width: 35px;
+    height: 35px;
+}
+.Header-elements div {
+    font-size: 26px;
+    padding-left: 25px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
 .SideBar {
     width: 250px;
     background-color: #549DF2;
@@ -115,30 +139,46 @@ body {
     font-family: Outfit;
     margin-top: 20px;
     cursor: pointer;
-    transition: ease 200ms;
 }
 
 @media (max-width: 800px) {
     body {
         display: block;
     }
-    .SideBar {
+    header {
         height: 80px;
         width: 100vw;
-        display: flex;
-        line-height: 80px
+        display: block;
+        line-height: 80px;
+        background-color: #549DF2;
+        color: white;
     }
-    .SideBar-elements span {
+    .Header-elements span {
         display: flex;
     }
-    .SideBar-logo {
-        font-size: 18px;
+    .Header-logo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+    }
+    .Header-logo img {
+        width: 40px;
+        height: 40px;
+    }
+    .Header-logo h1 {
         margin: 0px;
     }
-    .SideBar-logo h1 {
-        margin: 0px;
+    .Header-elements {
+        position: absolute;
+        display: none;
+        background-color: #549DF2;
+        height: 200px;
+        width: 100%;
+        z-index: 100;
     }
-    .SideBar-elements {
+    .SideBar {
         display: none;
     }
 }
