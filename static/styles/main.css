@@ -13,7 +13,6 @@ body {
 
 header {
     display: none;
-    padding-inline: 20px;
 }
 .Header-elements {
     padding-top: 10px;
@@ -147,17 +146,19 @@ header {
     }
     header {
         height: 80px;
-        width: 100vw;
+        width: 94%;
         display: block;
         line-height: 80px;
         background-color: #549DF2;
         color: white;
+        padding-inline: 3%;
     }
     .Header-elements span {
         display: flex;
     }
     .Header-logo {
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -171,6 +172,7 @@ header {
         margin: 0px;
     }
     .Header-elements {
+        border-top: solid white 2px;
         position: absolute;
         display: none;
         background-color: #549DF2;
