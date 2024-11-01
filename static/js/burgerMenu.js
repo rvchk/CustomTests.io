@@ -1,9 +1,12 @@
 const dropOutMenu = document.querySelector(".Header-elements")
+const burgerButton = document.querySelector("#burgerButton")
 let BurgerClicked = false
 
 function BurgerMenu() {
+    burgerButton.src = `static/imgs/Icons/BurgerMenu-icon.png`
     BurgerClicked = !BurgerClicked
     if (BurgerClicked) {
+        burgerButton.src = `static/imgs/Icons/Delete-icon.png`
         dropOutMenu.style.display = "block"
         dropOutMenu.innerHTML = `
             <a href="index.html">
@@ -30,3 +33,5 @@ function BurgerMenu() {
         dropOutMenu.style.display = "none"
     }
 }
+
+burgerButton.addEventListener("click", BurgerMenu)

@@ -175,10 +175,9 @@ header {
         border-top: solid white 2px;
         position: absolute;
         display: none;
-        background-color: #549DF2;
+        background-color: #549ef2;
         height: 200px;
-        width: 100%;
-        z-index: 100;
+        width: 94%;
     }
     .SideBar {
         display: none;

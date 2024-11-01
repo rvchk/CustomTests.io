@@ -144,6 +144,20 @@
 @media (max-width: 800px) {
     .Questions {
         display: block;
-        width: 100vw;
+        width: 90%;
+    }
+    .Questions-test, .Questions-create, .Questions-list {
+        width: 100%;
+    }
+    .Questions-list {
+        margin-top: 50px;
+        padding-bottom: 50px;
+    }
+    .Questions-list ul {
+        width: 90%;
+    }
+    .Questions-list h1 {
+        padding-bottom: 20px;
+        padding-top: 10px;
     }
 }
