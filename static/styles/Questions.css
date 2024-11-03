@@ -140,6 +140,9 @@
     margin: 0 auto;
     margin-bottom: 20px;
 }
+#LongQuestionButtons {
+    width: 43px;
+}
 
 @media (max-width: 800px) {
     .Questions {

@@ -64,10 +64,25 @@ function Render() {
 
     let list = []
         questions.map((x) => {
+            if (x.Question.length + x.Answer.length > 14) {
+                list.push(`
+                    <li>
+                        ${x.Question} ==> ${x.Answer}
+                            <div class="ActionButtons" id="LongQuestionButtons">
+                                <button id="editButton" style="background-color: transparent; border: none;">
+                                    <img src="static/imgs/Icons/Edit-icon.png" alt="">
+                                </button>
+                                <button id="deleteButton" style="background-color: transparent; border: none;">
+                                    <img src="static/imgs/Icons/Delete-icon.png" alt="">
+                                </button>
+                            </div>
+                    </li>`)
+            }
+            else {
                 list.push(`
                 <li>
                     ${x.Question} ==> ${x.Answer}
-                        <div>
+                        <div class="ActionButtons">
                             <button id="editButton" style="background-color: transparent; border: none;">
                                 <img src="static/imgs/Icons/Edit-icon.png" alt="">
                             </button>
@@ -75,9 +90,10 @@ function Render() {
                                 <img src="static/imgs/Icons/Delete-icon.png" alt="">
                             </button>
                         </div>
-                </li>`
-        )})
-
+                </li>`)
+            }
+        })
+  
     if (questions.length > 0) {  
         questionsUI.innerHTML = `
         <h1>List of Questions</h1>
