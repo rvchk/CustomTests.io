@@ -168,11 +168,12 @@ header {
         font-size: 16px;
     }
     .Header-logo img {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
     .Header-logo h1 {
         margin: 0px;
+        font-size: 28px;
     }
     .Header-elements {
         border-top: solid white 2px;
