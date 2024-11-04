@@ -10,6 +10,9 @@ body {
     font-family: Outfit;
     display: flex;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 header {
     display: none;

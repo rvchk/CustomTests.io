@@ -64,14 +64,16 @@ function Render() {
 
     let list = []
         questions.map((x) => {
-            if (x.Question.length + x.Answer.length > 14) {
+            if (x.Question.length + x.Answer.length > 12) {
                 list.push(`
                     <li>
                         ${x.Question} ==> ${x.Answer}
                             <div class="ActionButtons" id="LongQuestionButtons">
-                                <button id="editButton" style="background-color: transparent; border: none;">
-                                    <img src="static/imgs/Icons/Edit-icon.png" alt="">
-                                </button>
+                                <a href="#CreateForm">
+                                    <button id="editButton" style="background-color: transparent; border: none;" onclick="CreateForm">
+                                        <img src="static/imgs/Icons/Edit-icon.png" alt="">
+                                    </button>
+                                </a>
                                 <button id="deleteButton" style="background-color: transparent; border: none;">
                                     <img src="static/imgs/Icons/Delete-icon.png" alt="">
                                 </button>
@@ -83,9 +85,11 @@ function Render() {
                 <li>
                     ${x.Question} ==> ${x.Answer}
                         <div class="ActionButtons">
-                            <button id="editButton" style="background-color: transparent; border: none;">
-                                <img src="static/imgs/Icons/Edit-icon.png" alt="">
-                            </button>
+                            <a href="#CreateForm">
+                                <button id="editButton" style="background-color: transparent; border: none;" onclick="CreateForm">
+                                    <img src="static/imgs/Icons/Edit-icon.png" alt="">
+                                </button>
+                            </a>
                             <button id="deleteButton" style="background-color: transparent; border: none;">
                                 <img src="static/imgs/Icons/Delete-icon.png" alt="">
                             </button>
