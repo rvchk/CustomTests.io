@@ -129,3 +129,64 @@
 .Test-answerChoosed {
     background-color: black;
 }
+
+@media (max-width: 800px) {
+    .Test {
+        margin: 0 auto;
+        margin-top: 30px;
+        width: 90%;
+        height: 600px;
+    }
+    .Test-NavBar span {
+        font-size: 24px;
+    }
+    .Test-container {
+        width: 75%;
+        height: 250px;
+        padding-top: 10px;
+    }
+    .Test-container h1 {
+        font-size: 26px;
+        margin: 0;
+    }
+    .Test-question {
+        margin-bottom: 35px;
+    }
+    .Test-question p {
+        font-size: 26px;
+    }
+    .Test-question span {
+        font-size: 26px;
+    }
+    #Test-Question {
+        margin-bottom: 15px;
+    }
+    #Test-input {
+        height: 40px;
+        font-size: 22px;
+    }
+    #Test-button {
+        width: 150px;
+        font-size: 24px;
+    }
+    #AnswerOption {
+        font-size: 20px;
+        width: 150px;
+        margin-inline: 5px;
+    }
+    #ChoosedAnswer {
+        width: 150px;
+        transform: scale(1.05);
+        margin-inline: 5px;
+        font-size: 22px;
+    }
+
+    .Test-info h1 {
+        font-size: 24px;
+    }
+    .Test-info button {
+        font-size: 24px;
+        width: 130px;
+        margin-right: 20px;
+    }
+}
