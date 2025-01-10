@@ -188,4 +188,8 @@ header {
     .SideBar {
         display: none;
     }
+    .List-Error-block {
+        margin: 0 auto;
+        width: 90%;
+    }
 }
